@@ -1,0 +1,18 @@
+<?php 
+
+$auth = Zend_Auth::getInstance();
+if($auth->hasIdentity()):
+$identity = $auth->getIdentity();
+?>
+<p>Welcome <?php echo $identity->name; ?> <a
+	href="<?php echo $this->url(array('action' => 'logout', 'controller' => 'auth')); ?>">Logout</a></p>
+<?php
+else :
+?>
+<p><a
+	href="<?php echo $this->url(array('action' => 'login', 'controller' => 'auth')); ?>">Login</a>
+or <a
+	href="<?php echo $this->url(array('action' => 'register', 'controller' => 'auth')); ?>">Sign-Up</a></p>
+<?php
+endif;
+?> 

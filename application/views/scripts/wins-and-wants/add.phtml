@@ -1,0 +1,50 @@
+<h2>Add new Wins and Wants</h2>
+<?php
+$this->headLink()->appendStylesheet($this->baseUrl() . '/css/winsform.css');
+$this->headLink()->appendStylesheet($this->baseUrl() . '/css/jquery-ui-1.8.7.custom.css');
+$this->headScript()->appendFile($this->baseUrl() . '/js/jquery-ui-1.8.7.custom.min.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/wins.js');
+
+if(is_null($this->form)){
+	echo '<br /><p>' . $this->msg . '</p>';
+} else {
+	$this->form->setAction($this->url());
+	//echo $this->form;
+}
+?>
+<?php echo '<br /><p>' . $this->msg . '</p>'; ?>
+<form id="winsform" name="winsform" method="post" action="">
+<fieldset class="date">
+<div class="wrapper"><?php echo $this->form->created; ?></div>
+</fieldset>
+<fieldset><legend><span>Wins</span></legend> <span class="share_label">Share <input type="checkbox" class="checkall" /></span>
+<ol>
+	<li><?php echo $this->form->wins_01; ?><?php echo $this->form->wins_01_cb; ?></li>
+	<li><?php echo $this->form->wins_02; ?><?php echo $this->form->wins_02_cb; ?></li>
+	<li><?php echo $this->form->wins_03; ?><?php echo $this->form->wins_03_cb; ?></li>
+	<li><?php echo $this->form->wins_04; ?><?php echo $this->form->wins_04_cb; ?></li>
+	<li><?php echo $this->form->wins_05; ?><?php echo $this->form->wins_05_cb; ?></li>
+</ol>
+</fieldset>
+<fieldset><legend><span>Wants</span></legend>
+<ol>
+	<li><?php echo $this->form->wants_01; ?><?php echo $this->form->wants_01_cb; ?></li>
+	<li><?php echo $this->form->wants_02; ?><?php echo $this->form->wants_02_cb; ?></li>
+	<li><?php echo $this->form->wants_03; ?><?php echo $this->form->wants_03_cb; ?></li>
+	<li><?php echo $this->form->wants_04; ?><?php echo $this->form->wants_04_cb; ?></li>
+	<li><?php echo $this->form->wants_05; ?><?php echo $this->form->wants_05_cb; ?></li>
+</ol>
+</fieldset>
+<fieldset class="share">
+<div class="wrapper">
+<?php echo $this->form->emails; ?>
+<p class="instructions">Enter email addresses of people you want to
+share this with. Insert a comma between email addresses.</p>
+</div>
+</fieldset>
+<fieldset class="submit">
+<?php echo $this->form->save; ?>
+<?php echo $this->form->share; ?>
+<?php echo $this->form->print; ?>
+</fieldset>
+</form>

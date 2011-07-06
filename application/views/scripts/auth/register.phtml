@@ -1,0 +1,9 @@
+<h2>Register</h2>
+<?php
+
+if(is_null($this->form)){
+	echo '<br /><p>' . $this->msg . '</p>';
+} else {
+	$this->form->setAction($this->url());
+	echo $this->form;
+}

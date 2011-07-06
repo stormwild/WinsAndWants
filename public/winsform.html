@@ -1,0 +1,227 @@
+<!DOCTYPE html> 
+<html lang=en>
+
+<head>
+
+<title>Wins and Wants</title> 
+<meta charset=utf-8>
+
+<link href="/winsandwants/public/css/HTML5_twoColFixRtHdr.css" media="screen" rel="stylesheet" type="text/css" > 
+<!--[if lt IE 9]>
+
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<![endif]-->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script> 
+</head>
+
+
+
+<div class="container">
+
+
+
+  <header>
+
+    <a href="/winsandwants/public"><img src="/winsandwants/public/img/winsandwants_logo.png" width="397" height="60" alt="Wins and Wants"></a>
+
+</header>  
+
+  
+
+<div class="sidebar1">
+
+
+
+<p>Welcome stormwild <a
+
+	href="/winsandwants/public/auth/logout">Logout</a></p>
+
+ 
+
+<!-- 
+
+<nav>
+
+<ul>
+
+	<li><a href="#">Link one</a></li>
+
+	<li><a href="#">Link two</a></li>
+
+	<li><a href="#">Link three</a></li>
+
+	<li><a href="#">Link four</a></li>
+
+</ul>
+
+</nav>
+
+ --> 
+
+
+
+<!-- end .sidebar1 --></div>
+
+  
+
+  <div id="content">
+
+  <h2>Add new Wins and Wants</h2>
+
+<form id="winsandwants" enctype="application/x-www-form-urlencoded" method="post" action="/winsandwants/public/winsandwants/add"><dl class="zend_form">
+
+<dt id="created-label"><label for="created" class="required">Date:</label></dt>
+
+<dd id="created-element">
+
+<input type="text" name="created" id="created" value="" maxlength="10"></dd>
+
+<dt id="wins_01-label"><label for="wins_01" class="optional">Wins 01:</label></dt>
+
+<dd id="wins_01-element">
+
+<input type="text" name="wins_01" id="wins_01" value="" size="50" maxlength="140"></dd>
+
+<dt id="wins_01_cb-label">&#160;</dt>
+
+<dd id="wins_01_cb-element">
+
+<input type="hidden" name="wins_01_cb" value="0"><input type="checkbox" name="wins_01_cb" id="wins_01_cb" value="1"></dd>
+
+<dt id="wins_02-label"><label for="wins_02" class="optional">Wins 02:</label></dt>
+
+<dd id="wins_02-element">
+
+<input type="text" name="wins_02" id="wins_02" value="" size="50" maxlength="140"></dd>
+
+<dt id="wins_02_cb-label">&#160;</dt>
+
+<dd id="wins_02_cb-element">
+
+<input type="hidden" name="wins_02_cb" value="0"><input type="checkbox" name="wins_02_cb" id="wins_02_cb" value="1"></dd>
+
+<dt id="wins_03-label"><label for="wins_03" class="optional">Wins 03:</label></dt>
+
+<dd id="wins_03-element">
+
+<input type="text" name="wins_03" id="wins_03" value="" size="50" maxlength="140"></dd>
+
+<dt id="wins_03_cb-label">&#160;</dt>
+
+<dd id="wins_03_cb-element">
+
+<input type="hidden" name="wins_03_cb" value="0"><input type="checkbox" name="wins_03_cb" id="wins_03_cb" value="1"></dd>
+
+<dt id="wins_04-label"><label for="wins_04" class="optional">Wins 04:</label></dt>
+
+<dd id="wins_04-element">
+
+<input type="text" name="wins_04" id="wins_04" value="" size="50" maxlength="140"></dd>
+
+<dt id="wins_04_cb-label">&#160;</dt>
+
+<dd id="wins_04_cb-element">
+
+<input type="hidden" name="wins_04_cb" value="0"><input type="checkbox" name="wins_04_cb" id="wins_04_cb" value="1"></dd>
+
+<dt id="wins_05-label"><label for="wins_05" class="optional">Wins 05:</label></dt>
+
+<dd id="wins_05-element">
+
+<input type="text" name="wins_05" id="wins_05" value="" size="50" maxlength="140"></dd>
+
+<dt id="wins_05_cb-label">&#160;</dt>
+
+<dd id="wins_05_cb-element">
+
+<input type="hidden" name="wins_05_cb" value="0"><input type="checkbox" name="wins_05_cb" id="wins_05_cb" value="1"></dd>
+
+<dt id="wants_01-label"><label for="wants_01" class="optional">Wants 01:</label></dt>
+
+<dd id="wants_01-element">
+
+<input type="text" name="wants_01" id="wants_01" value="" size="50" maxlength="140"></dd>
+
+<dt id="wants_01_cb-label">&#160;</dt>
+
+<dd id="wants_01_cb-element">
+
+<input type="hidden" name="wants_01_cb" value="0"><input type="checkbox" name="wants_01_cb" id="wants_01_cb" value="1"></dd>
+
+<dt id="wants_02-label"><label for="wants_02" class="optional">Wants 02:</label></dt>
+
+<dd id="wants_02-element">
+
+<input type="text" name="wants_02" id="wants_02" value="" size="50" maxlength="140"></dd>
+
+<dt id="wants_02_cb-label">&#160;</dt>
+
+<dd id="wants_02_cb-element">
+
+<input type="hidden" name="wants_02_cb" value="0"><input type="checkbox" name="wants_02_cb" id="wants_02_cb" value="1"></dd>
+
+<dt id="wants_03-label"><label for="wants_03" class="optional">Wants 03:</label></dt>
+
+<dd id="wants_03-element">
+
+<input type="text" name="wants_03" id="wants_03" value="" size="50" maxlength="140"></dd>
+
+<dt id="wants_03_cb-label">&#160;</dt>
+
+<dd id="wants_03_cb-element">
+
+<input type="hidden" name="wants_03_cb" value="0"><input type="checkbox" name="wants_03_cb" id="wants_03_cb" value="1"></dd>
+
+<dt id="wants_04-label"><label for="wants_04" class="optional">Wants 04:</label></dt>
+
+<dd id="wants_04-element">
+
+<input type="text" name="wants_04" id="wants_04" value="" size="50" maxlength="140"></dd>
+
+<dt id="wants_04_cb-label">&#160;</dt>
+
+<dd id="wants_04_cb-element">
+
+<input type="hidden" name="wants_04_cb" value="0"><input type="checkbox" name="wants_04_cb" id="wants_04_cb" value="1"></dd>
+
+<dt id="wants_05-label"><label for="wants_05" class="optional">Wants 05:</label></dt>
+
+<dd id="wants_05-element">
+
+<input type="text" name="wants_05" id="wants_05" value="" size="50" maxlength="140"></dd>
+
+<dt id="wants_05_cb-label">&#160;</dt>
+
+<dd id="wants_05_cb-element">
+
+<input type="hidden" name="wants_05_cb" value="0"><input type="checkbox" name="wants_05_cb" id="wants_05_cb" value="1"></dd>
+
+<dt id="save-label">&#160;</dt><dd id="save-element">
+
+<input type="submit" name="save" id="save" value="Save"></dd>
+
+<dt id="share-label">&#160;</dt><dd id="share-element">
+
+<button name="share" id="share" type="button">Save &amp; Share</button></dd>
+
+<dt id="print-label">&#160;</dt><dd id="print-element">
+
+<button name="print" id="print" type="button">Print</button></dd></dl></form>  </div>
+
+  
+
+    <footer>
+
+    <p>&copy; Capstone Capital Pte Ltd.</p>    
+
+  </footer>  	
+
+<!-- end .container --></div>
+
+</body>
+
+</html>
+
+

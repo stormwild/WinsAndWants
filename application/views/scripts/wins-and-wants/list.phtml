@@ -1,0 +1,12 @@
+<?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/winstable.css'); ?>
+
+<h2>Your winsandwants.</h2>
+<?php 
+echo "<table id='hor-minimalist-b'>";	
+echo "<tr><th>View</th><th>Date Created</th></tr>";
+foreach($this->rows as $row){
+	echo "<tr><td><a href='" . $this->baseUrl() . "/wins-and-wants/view/id/" . $row['id'] . "'>View</a></td><td>" . $row['created'] . "</td></tr>";
+}
+echo "</table>";
+?>
+<p>Return to <a href="<?php echo $this->baseUrl() . "/dashboard/"; ?>">Dashboard</a></p>

@@ -1,0 +1,83 @@
+fieldset {
+	position: relative;
+	float: left;
+	clear: left;
+	width: 100%;
+	margin: 0 0 -1em 0;
+	padding: 0 0 1em 0;
+	border-style: none;
+	border-top: 1px solid #BFBAB0;
+	background-color: #F2EFE9;
+	padding: 0 0 1em 0;
+	border-top: 1px solid #BFBAB0;
+}
+
+legend {
+	margin-left: 1em;
+	color: #545351;
+	font-weight: bold;
+	padding: 0;
+}
+
+legend span {
+	position: absolute;
+	left: 0.74em;
+	top: 0;
+	margin-top: 0.5em;
+	font-size: 135%;
+}
+
+fieldset ol {
+	margin-top: 3.5em; padding : 3.5em 1em 0 1em;
+	list-style: none;
+	padding: 3.5em 1em 0 1em;
+}
+
+fieldset li {
+	float: left;
+	clear: left;
+	width: 100%;
+	padding-bottom: 1em;
+}
+
+fieldset.date .wrapper,
+fieldset.share .wrapper {
+	padding: 1em;
+}
+
+fieldset.date .wrapper label,
+fieldset.share .wrapper label {
+	font-weight: bold;
+}
+
+fieldset.share .wrapper p {
+	padding-left: 14.5em;	
+}
+
+fieldset.submit {
+	float: none;
+	width: auto;
+	border: 0 none #FFF;
+	padding-left: 2.5em;
+	padding-top: 1.5em;
+	background-color: transparent;
+}
+
+label {
+	display: block;
+	float: left;
+	width: 7em;
+	margin-right: 1em;
+}
+
+.instructions {
+	font-size: 9px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.share_label {
+	position: absolute;
+	float: right;	
+	top: 20px;
+	right: 127px;
+}

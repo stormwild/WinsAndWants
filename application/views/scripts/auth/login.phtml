@@ -1,0 +1,10 @@
+<h2>Login</h2>
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
+?>
+<p class="smalltext logintext"><a href="<?php echo $this->baseUrl() . "/auth/recover"; ?>">Forgot username/password?</a></p>
+<p>Not yet registered? <a href="<?php echo $this->baseUrl() . "/auth/register"; ?>">Sign-Up Now!</a></p>
