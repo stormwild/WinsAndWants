@@ -128,12 +128,11 @@ class AuthController extends Zend_Controller_Action
 			$userHasRoleMapper->save($userHasRole);
 			$db->commit();
 
-			// clear get parameter
-			$request->clearParams();
-
 			$url = $this->view->url(array('action' => 'login', 'controller' => 'auth'));
+			
 			// Display success message
 			$this->view->msg = "Your registration is complete. You may now <a href='$url'>login</a>. ";
+			
 		} catch (Exception $e) {
 			$db->rollBack();
 			throw new Exception($e->getMessage(), $e->getCode());
@@ -165,14 +164,11 @@ EOT;
 
 	}
 	
-	private function getValidationLink(Application_Model_User &$user)
+	private function getValidationLink(Application_Model_User $user)
 	{
-		$param['id'] = dechex($user->getId());
-		$param['name'] = bin2hex($user->getName());
-		$param['email'] = bin2hex($user->getEmail());
+
+		return 'http://localhost' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
 		
-		return 'http://localhost' . $this->view->baseUrl() . '/auth/confirm/id/' . $param['id'] . "/n/" . $param['name'] . "/e/" . $param['email'];
-		//return 'http://winsandwants.com' . '/auth/confirm/id/' . $param['id'] . "/n/" . $param['name'] . "/e/" . $param['email'];		
 	}
 }
 

@@ -53,9 +53,7 @@ class Application_Model_UserMapper
 
 		$select = $table->select();
 
-		$select->where('id = ?', $params['id'])
-		->where('name = ?', $params['name'])
-		->where('email = ?', $params['email']);
+		$select->where('id = ?', $params['id']);
 
 		$row = $table->fetchRow($select);
 
