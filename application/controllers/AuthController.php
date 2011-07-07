@@ -166,9 +166,11 @@ EOT;
 	
 	private function getValidationLink(Application_Model_User $user)
 	{
-
-		return 'http://localhost' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
-		
+		if(getenv('APPLICATION_ENV') == 'development') {
+			return 'http://localhost' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
+		} else {
+			return 'http://winsandwants.com' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
+		}
 	}
 }
 
