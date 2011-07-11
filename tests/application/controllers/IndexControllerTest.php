@@ -3,9 +3,7 @@ class IndexControllerTest extends ControllerTestCase
 {
 	public function testIndex()
 	{
-		$this->dispatch("/");
-		
-		//echo $this->getResponse()->getBody();
+		$this->dispatch("/");		
 		
 		$this->assertController("index");
 		$this->assertAction("index");

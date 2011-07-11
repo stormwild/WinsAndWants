@@ -3,18 +3,18 @@
 class IndexController extends Zend_Controller_Action
 {
 
-	public function init()
-	{
+    public function init()
+    {
 		/* Initialize action controller here */
-	}
+    }
 
-	public function indexAction()
-	{
+    public function indexAction()
+    {
 		// action body
-	}
+    }
 
-	public function ceospeaksAction()
-	{
+    public function ceospeaksAction()
+    {
 		$request = $this->getRequest();
 		 
 		if($request->isPost()){
@@ -43,65 +43,66 @@ class IndexController extends Zend_Controller_Action
 			
 			$this->view->msg = "Thank you for sharing this site. A link to this site has been sent to the following emails: " . implode(",", $emails) . ".";
 		} 
-	}
+    }
 
-	public function goalsettingAction()
-	{
+    public function goalsettingAction()
+    {
 		// action body
-	}
+    }
 
-	public function winstemplateAction()
-	{
+    public function winstemplateAction()
+    {
 		// action body
-	}
+    }
 
-	public function mastermindPrincipleAction()
-	{
+    public function mastermindPrincipleAction()
+    {
 		// action body
-	}
+    }
 
-	public function useAction()
-	{
+    public function useAction()
+    {
 		// action body
-	}
+    }
 
-	public function guidelinesAction()
-	{
+    public function guidelinesAction()
+    {
 		// action body
-	}
+    }
 
-	public function purchaseAction()
-	{
+    public function purchaseAction()
+    {
 		// action body
-	}
+    }
 
-	public function privacyAction()
-	{
+    public function privacyAction()
+    {
 		// action body
-	}
+    }
 
-	public function termsAction()
-	{
+    public function termsAction()
+    {
 		// action body
-	}
+    }
 
-	public function contactAction()
-	{
+    public function contactAction()
+    {
 		// action body
-	}
+    }
 
-	public function faqsAction()
-	{
+    public function faqsAction()
+    {
 		// action body
-	}
+    }
 
-	public function donationsAction()
-	{
+    public function donationsAction()
+    {
 		// action body
-	}
-
+    }
 
 }
+
+
 
 
 

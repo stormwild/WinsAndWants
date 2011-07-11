@@ -22,6 +22,7 @@
           <actionMethod actionName="contact"/>
           <actionMethod actionName="faqs"/>
           <actionMethod actionName="donations"/>
+          <actionMethod actionName="update"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Auth">
@@ -176,6 +177,9 @@
           <viewControllerScriptsDirectory forControllerName="WinsAndWants">
             <viewScriptFile forActionName="share"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="update"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -210,10 +214,10 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile filesystemName="bootstrap.php"/>
         <testApplicationControllerDirectory>
-          <testApplicationControllerFile filesystemName="AuthControllerTest.php"/>
-          <testApplicationControllerFile filesystemName="DashboardControllerTest.php"/>
-          <testApplicationControllerFile filesystemName="WinsAndWantsControllerTest.php"/>
-          <testApplicationControllerFile filesystemName="ServiceControllerTest.php"/>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

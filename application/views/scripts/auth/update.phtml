@@ -1,0 +1,14 @@
+<h2>Login</h2>
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+if(is_null($this->form)){
+	echo '<br /><p>' . $this->msg . '</p>';
+} else {
+	$this->form->setAction($this->url());
+	echo $this->form;
+}
+
+?>
+

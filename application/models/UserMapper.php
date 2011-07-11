@@ -60,7 +60,7 @@ class Application_Model_UserMapper
 		if(isset($row)){
 			$data = array('confirmed' => 1);
 			$this->getDbTable()->update($data, array('id = ?' => $params['id']));
-		} else {			
+		} else {
 			throw new Exception('No match');
 		}
 	}
@@ -83,6 +83,24 @@ class Application_Model_UserMapper
 			$users[] = $user;
 		}
 		return $users;
+	}
+
+	public function fetchUserByEmail($email)
+	{
+		$table = $this->getDbTable();
+
+		$select = $table->select();
+
+		$select->where('email = ?', $email);
+
+		$row = $table->fetchRow($select);
+
+		if(isset($row)){
+			$user = new Application_Model_User((array)$row->toArray());
+			return $user;
+		} else {
+			throw new Exception('No match');
+		}
 	}
 
 }

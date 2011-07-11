@@ -29,12 +29,15 @@ class AuthController extends Zend_Controller_Action
 
 				$user->setId($id);
 
+				$writer = new Zend_Log_Writer_Stream(APPLICATION_PATH . "/../tmp/log.txt");
+				$logger = new Zend_Log($writer);
+
 				try {
 					$this->sendConfirmationEmail($user);
+					$logger->log("Email confirmation sent.", Zend_Log::INFO);
 				} catch (Exception $e) {
-					// Do nothing if it fails while developing locally because we don't have a local smtp
 					// Log error on production
-					// @TODO
+					$logger->log("Email confirmation failed." . $e->getMessage(), Zend_Log::EMERG);
 				}
 
 				$form = null;
@@ -74,7 +77,7 @@ class AuthController extends Zend_Controller_Action
 					$user = $authAdapter->getResultRowObject(null, 'password');
 					$storage = $auth->getStorage();
 					$storage->write($user);
-					
+
 					if($user->confirmed == 1) {
 						$this->_redirect('dashboard'); // Redirect to dashboard
 					} else {
@@ -129,21 +132,96 @@ class AuthController extends Zend_Controller_Action
 			$db->commit();
 
 			$url = $this->view->url(array('action' => 'login', 'controller' => 'auth'));
-			
+
 			// Display success message
 			$this->view->msg = "Your registration is complete. You may now <a href='$url'>login</a>. ";
-			
+
 		} catch (Exception $e) {
 			$db->rollBack();
 			throw new Exception($e->getMessage(), $e->getCode());
 		}
-	}
-	
-	public function recoverAction()
-	{
-		
+
+		//@TODO Send an email with the user's username and password for reference
 	}
 
+	/**
+	 * 
+	 * Resets password and send username and new password to user's email address
+	 */
+	public function recoverAction()
+	{
+		// reset password
+		$request = $this->getRequest();
+		$form = new Application_Form_Recover();
+
+		if($request->isPost()) {
+			if($form->isValid($request->getPost())) {
+				
+				$email = $form->getValues('email');
+				$userMapper = new Application_Model_UserMapper();
+				
+				$writer = new Zend_Log_Writer_Stream(APPLICATION_PATH . "/../tmp/log.txt");
+				$logger = new Zend_Log($writer);
+				
+				try {
+					$user = $userMapper->fetchUserByEmail($email);
+					
+					$password =  $this->generatePassword();
+					
+					$user->setPassword($password);
+					
+					$userMapper->save($user);
+					
+					$this->view->email = var_dump($user);
+					
+					$this->sendRecoverEmail($user);
+					
+					$logger->log("Recover email sent.", Zend_Log::INFO);
+					
+				} catch (Exception $e) {
+					// @TODO display and log error
+					$this->view->error = 'An error occurred: ' . $e->getMessage();
+					$logger->log("Recover failed." . $e->getMessage(), Zend_Log::EMERG);
+				}
+				
+				$form = null;
+
+			}
+		}
+
+		$this->view->form = $form;
+	}
+
+	/**
+	 * 
+	 * Change password 
+	 */
+	public function updateAction()
+	{
+		// display form 
+		$request = $this->getRequest();
+		$form = new Application_Form_Update();
+		
+		// process form
+		if($request->isPost()){
+			if($form->isValid($request->getPost())){
+				$userMapper = new Application_Model_UserMapper();
+				
+				$auth = Zend_Auth::getInstance();
+				$user = new Application_Model_User(get_object_vars($auth->getIdentity()));
+								
+				$user->setPassword($form->getValue('password'));
+				$userMapper->save($user);
+				
+				$form = null;
+				
+				$this->view->msg = "Your password has been updated.";
+			}
+		}		
+		
+		$this->view->form = $form;
+	}
+	
 	private function sendConfirmationEmail(Application_Model_User &$user)
 	{
 		$mail = new Zend_Mail();
@@ -157,20 +235,37 @@ class AuthController extends Zend_Controller_Action
         
 EOT;
 
-		$txt .= $this->getValidationLink($user); 
-		
+		$txt .= $this->getValidationLink($user);
+
 		$mail->setBodyText($txt, 'UTF-8');
 		$mail->send();
 
 	}
-	
-	private function getValidationLink(Application_Model_User $user)
+
+	private function getValidationLink(Application_Model_User &$user)
 	{
 		if(getenv('APPLICATION_ENV') == 'development') {
 			return 'http://localhost' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
 		} else {
 			return 'http://winsandwants.com' . $this->view->baseUrl() . '/auth/confirm/id/' . $user->getId();
 		}
+	}
+	
+	private function sendRecoverEmail(Application_Model_User $user)
+	{
+		$mail = new Zend_Mail();
+		$mail->setFrom('noreply@winsandwants.com', 'Wins and Wants');
+		$mail->addTo($user->getEmail());
+		$mail->setSubject('Account Details');
+		$txt = "Your account details are as follows Username: " . $user->getName() . " Password: " . $user->getPassword();
+		
+		$mail->setBodyText($txt, 'UTF-8');
+		$mail->send();
+	}
+	
+	private function generatePassword()
+	{
+		return substr(md5(rand().rand()), 0, 8);
 	}
 }
 

@@ -1,2 +1,9 @@
 <h2>Recover Username and/or Password</h2>
 <?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
+echo $this->email ? $this->email : 'none';
+?>

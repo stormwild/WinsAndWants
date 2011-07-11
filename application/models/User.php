@@ -82,7 +82,11 @@ class Application_Model_User
 
 	public function setId($id)
 	{
-		$this->_id = $id;
+		if(is_int($id)) {
+			$this->_id = $id;
+		} else {
+			throw new InvalidArgumentException('User id should be an integer. ' . $id . 'is of type: ' . gettype($id));
+		}
 	}
 
 	public function getId()
