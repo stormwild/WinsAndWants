@@ -1,0 +1,51 @@
+/* SUPERFISH STYLESHEET ---------------------------------- */
+.sf-menu,
+.sf-menu * { margin:0; padding:0; list-style:none; }
+.sf-menu { line-height:1.0; }
+.sf-menu ul { top:-999em; }
+.sf-menu ul li { width:100%; }
+/* fixes IE7 'sticky bug' */
+.sf-menu li:hover { visibility:inherit; }
+.sf-menu li { position:relative; }
+.sf-menu a { display:block; position:relative; }
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul { left:0; top:29px; /* match top ul list item height */ z-index:99; }
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul { top:-999em; }
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul { left:12em; top:-0.1em; }
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul { top:-999em; }
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul { left:12em; top:-0.1em; }
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul { left:0; top:51px; /* match top ul list item height */ z-index:99; }
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul { top:-999em; }
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul { left:10em; /* match ul width */ top:0; }
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul { top:-999em; }
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul { left:10em; /* match ul width */ top:0; }
+
+
+/*=== Styling Lists ===*/
+/*- List -*/
+.list { clear:both; padding:0; height:31px; font-size:13px; line-height:1em; color:#666;}
+.list li { float:left; margin:0; padding:0 2px 0 0; }
+.list li a { display:block; float:left; padding:8px 10px 10px; text-align:center; text-decoration:none; color:#8b8b8b; background:none;}
+.list li a:hover, .list li a.active { color:#1e6384; background:#efefef;}
+.list li a:hover { padding-bottom:8px;}
+.list li a.active { padding-bottom:10px;}
+div.tabs_list { padding:0; margin:0; }
+div.tabs_list ul { list-style:none; text-align:left; padding:5px 0; border:none; background:#efefef;}
+div.tabs_list ul li { font:normal 12px Arial, Helvetica, sans-serif; padding:0; margin:5px 0;}
+div.tabs_list ul li a { display:block; padding:5px 0 5px 15px; margin:0; color:#666;}
+div.tabs_list ul li a:hover { text-decoration:underline; color:#1e6384;}
+div.tabs_list ul li ul.children { padding:0; border:none;}
+div.tabs_list ul li ul.children li { margin:0; border:none;}
+div.tabs_list ul li ul.children a { background:none; border:none;}
+div.tabs_list ul li ul.children a:hover { color:#1e6384;}
+div.tabs_list ul li ul.children li a { padding:5px 0 5px 25px; display:block; border:none;}
+div.tabs_list ul li ul.children li li a { padding:5px 0 5px 35px; display:block;}

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* DESIGN TOPNAV (mainmenu) */
+.topnav { padding:52px 0 0; float:right; width:auto; height:34px; font-size:12px; line-height:12px;}
+/* level 0 */
+.topnav ul { margin:0; padding:0; float:left; width:auto; height:34px;}
+.topnav ul li { margin:0; padding:0 4px 0 0; float:left;}
+.topnav ul li a { padding:10px 24px; float:left; font-weight:bold; color:#818181; text-decoration:none; background:none; border:1px solid transparent;}
+.topnav ul li.current_page_item { }					/* active item first level */
+.topnav ul li.current_page_item a { color:#fff; background:#f00 url(images/menu_a.gif) repeat-x left top; border-left:1px solid #1d589c; border-top:1px solid #1d589c; border-right:1px solid #fff; border-bottom:1px solid #fff;}
+.topnav ul li a.a_hover_main { color:#20639f; background:#efefef; border-left:1px solid #d9d9d9; border-top:1px solid #d9d9d9; border-right:1px solid #fff; border-bottom:1px solid #fff;}						/* on hover */
+/* level 1 */
+.topnav ul li ul { padding:3px 0 4px; top:33px; left:0; height:auto; background:#e9e9e9; border-left:1px solid #d9d9d9; border-top:1px solid #d9d9d9; border-right:1px solid #fff; border-bottom:1px solid #fff;}			/* position of submenu */
+.topnav ul li ul li { margin:0; padding:0 4px 0 3px; background:none;}
+.topnav ul li ul li a { padding:10px 24px; width:122px; font-size:12px; font-weight:normal; color:#858585; background:none; border:1px solid transparent;}
+.topnav ul li ul li a.have_submenu { }																/* if item have submenu */
+.topnav ul li ul li a:hover,
+.topnav ul li ul li a.have_submenu_hover { color:#20639f; background:#efefef; border-left:1px solid #d9d9d9; border-top:1px solid #d9d9d9; border-right:1px solid #fff; border-bottom:1px solid #fff;}
+.topnav ul li ul li ul { padding:4px 0; top:-5px; left:180px;}	/* position of submenu level 2 */
+
+/* DESIGN NAV1 (categories) */
+#nav1 { }
+/* level 0 */
+#nav1 ul { }
+#nav1 ul li { }
+#nav1 ul li a { }
+#nav1 ul li.current-cat { }							/* active item first level */
+#nav1 ul li.current-cat a,
+#nav1 ul li a.a_hover_main { }				/* on hover */
+/* level 1 */
+#nav1 ul li ul { }				/* position of submenu */
+#nav1 ul li ul li { }
+#nav1 ul li ul li a { }
+#nav1 ul li ul li a.have_submenu { }																/* if item have submenu */
+#nav1 ul li ul li a:hover,
+#nav1 ul li ul li a.have_submenu_hover { }
+#nav1 ul li ul li ul { }		/* position of submenu level 2 */
+
+
+#nav1 * { }
+.topnav * { z-index:1001;}
+
+
+
+/* DO NOT EDIT!!! */
+ul.menusm { list-style:none;}
+ul.menusm li { cursor:pointer; position:relative;}
+ul.menusm li a { position:relative;}
+ul.menusm li ul { display:none; position:absolute; list-style:none;}
+ul.menusm li ul li ul { position:absolute; list-style:none;}

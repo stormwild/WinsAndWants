@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wins And Wants</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/coin-slider-styles.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/menusm.css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<!-- slider -->
+<script type="text/javascript" src="js/coin-slider.min.js"></script>
+<!-- cufon -->
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/cufon-yankaff.js"></script>
+<!-- menu -->
+<script type="text/javascript" src="js/menusm.js"></script>
+<!-- tabs-categories -->
+<script type="text/javascript" src="js/tabs-hoverintent.js"></script>
+<script type="text/javascript" src="js/tabs-superfish.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script>
+<link rel="stylesheet" href="js/tabs.css" type="text/css" media="screen" />
+<!-- scripts for use -->
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+<div id="page">
+  <div id="header">
+    <div class="logo">
+      <h1><a href="/" title="title - description"> WinsAndWants <small class="slogan"> Goal Setting </small></a></h1>
+    </div>
+    <!-- end .logo -->
+    <div class="topnav">
+      <ul class="menusm">
+        <li>menu item 1</li>
+        <li>menu item 2</li>
+      </ul>
+      <div class="clr"></div>
+    </div>
+    <!--/topnav -->
+    <div class="clr"></div>
+    <div class="pagetitle">
+      <h2>Blog</h2>
+      <div class="search">
+        <form method="get" id="searchform" action="/">
+          <fieldset id="search">
+            <span>
+            <input type="text" value="Search..." onclick="this.value='';" name="s" id="s" class="keywords" />
+            <input name="searchsubmit" type="image" src="img/search.png" value="Go" id="searchsubmit" class="btn"  />
+            </span>
+          </fieldset>
+        </form>
+      </div>
+      <!--/searchform -->
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <div class="underslider">
+      <p class="us_text">Hello &amp; Welcome to Cleanfolio.<br />
+        Stylish Web is a modern High quality HTML/CSS coded Template.</p>
+      <p class="us_but"><a href="#"><img src="img/button_tour.jpg" width="139" height="48" alt="Take a Tour" /></a></p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <!--/header-->
+  
+  <div class="index_blog">
+    <div id="centercol">
+      <div class="box post" id="">
+        <div class="content">
+          <div class="post-title">
+            <h2><a href="" rel="title" title="">Post Title</a></h2>
+          </div>
+          <!--/post-title -->
+          <div class="pic"><a href="" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><img src="" alt="" /></a></div>
+          <!--/post-img -->
+          <div class="post-date">On m/d/y
+            , In
+            category
+            , by
+            author </div>
+          <div class="comm_count"> <a href="" title="View all posts in " rel="category tag">(1)</a></div>
+          <!--/post-date -->
+          <div class="post-excerpt">excerpt here </div>
+          <!--/post-excerpt -->
+          <div class="post-leav"><a href="" title="Leave Your Response"> Comments &raquo;</a></div>
+          <div class="clr"></div>
+        </div>
+        <!--/content --> 
+      </div>
+      <!--/box -->
+      <ul>
+        <li>
+          <?php next_posts_link('&laquo; Older Entries') ?>
+        </li>
+        <li>
+          <?php previous_posts_link('Newer Entries &raquo;') ?>
+        </li>
+      </ul>
+      <?php else : ?>
+    </div>
+    <!--/centercol -->
+    
+    <div id="rightcol">
+      <div class="box_r ads">
+        <div class="wtitle">
+          <h2> Advertise </h2>
+        </div>
+        <div class="content">
+          <div class="small_link">
+            <div><small><a href="/"> Learn More About Advertising Here </a></small></div>
+            <div class="clr"></div>
+          </div>
+        </div>
+        <!--/content --> 
+      </div>
+      <!--/box -->
+      <div class="box_r">
+        <div class="wtitle">
+          <h2> Navigation </h2>
+        </div>
+        <div class="content">
+          <ul class="list">
+            <li><a href="#" class="active" rel="tabs_category"> Categories </a></li>
+            <li><a href="#" rel="tabs_archive"> Archives </a></li>
+            <li><a href="#" rel="tabs_links"> Links </a></li>
+          </ul>
+          <div class="tabs_category tabs_list">
+            <ul class="sf-menu sf-js-enabled">
+              <li>category1</li>
+            </ul>
+          </div>
+          <div class="tabs_archive tabs_list">
+            <ul>
+              <li>archives monthly Jan</li>
+            </ul>
+          </div>
+          <div class="tabs_links tabs_list">
+            <ul>
+              <li>links1</li>
+            </ul>
+          </div>
+        </div>
+        <div class="clr"></div>
+        <!--/content --> 
+      </div>
+      <div class="box_r ads">
+        <div class="content">
+          <div> Big Banner </div>
+        </div>
+        <!--/content --> 
+      </div>
+      <!--/box --> 
+    </div>
+    <!--/rightcol -->
+    
+    <div class="clr"></div>
+  </div>
+  <!--/columns -->
+  <div class="clr"></div>
+</div>
+<!--/page -->
+<div id="page_bottom">
+  <div id="footer">
+    <div class="text1">&copy; Copyright 2011 CompanyName. All Rights Reserved</div>
+    <div class="text2">Design: (TS) <a href="http://www.templatesold.com">WordPress Themes</a></div>
+    <div class="social-links"> <a href="#"><img src="img/soc-ico1.png" width="16" height="16" alt="facebook" /></a> <a href="#"><img src="img/soc-ico2.png" width="16" height="16" alt="flickr" /></a> <a href="#"><img src="img/soc-ico3.png" width="16" height="16" alt="linkedin" /></a> <a href="#"><img src="img/soc-ico4.png" width="16" height="16" alt="twitter" /></a> <a href="#"><img src="img/soc-ico5.png" width="16" height="16" alt="stumbleupon" /></a> </div>
+  </div>
+  <div class="clr"></div>
+  <!--/footer --> 
+</div>
+</body>
+</html>

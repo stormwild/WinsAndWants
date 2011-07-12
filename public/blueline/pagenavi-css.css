@@ -1,0 +1,17 @@
+/*=== PageNavi. ===*/
+
+/* main text */
+.wp-pagenavi { margin:0; padding:20px 0; clear:both; font-size:13px; color:#939393;}
+.wp-pagenavi p { margin:0; padding:0;}
+
+/* passive buttons */
+.wp-pagenavi a,
+.wp-pagenavi .current { color:#939393; margin-left:4px; padding:7px 12px; text-decoration:none; background:none; border:none;}
+
+/* active button */
+.wp-pagenavi a:hover,
+.wp-pagenavi .current { text-decoration:none; color:#4b4b4b; background:#e5e5e5; border:none;}
+.wp-pagenavi .current_l { float:right;}
+
+/* text "page 1 of 2" */
+.wp-pagenavi .pages { float:left;}
