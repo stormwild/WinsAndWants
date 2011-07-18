@@ -55,10 +55,30 @@ class WinsAndWantsController extends Zend_Controller_Action
 
 					$wins = new Zend_Session_Namespace('wins');
 
-					$wins->data = $winsandwants;
+					$data = array(
+        	                	 'id' 		=> $winsandwants->getId(),
+
+        	                	 'created'	=> $winsandwants->getCreated(),
+        	                	 'wins_01'	=> $winsandwants->getWins01(),
+        	                	 'wins_02'	=> $winsandwants->getWins02(),
+        	                	 'wins_03'	=> $winsandwants->getWins03(),
+        	                	 'wins_04'	=> $winsandwants->getWins04(),
+        	                	 'wins_05'	=> $winsandwants->getWins05(),
+        	                	 'wants_01'	=> $winsandwants->getWants01(),
+        	                	 'wants_02'	=> $winsandwants->getWants02(),
+        	                	 'wants_03'	=> $winsandwants->getWants03(),
+        	                	 'wants_04'	=> $winsandwants->getWants04(),
+        	                	 'wants_05'	=> $winsandwants->getWants05(),
+
+        	                	 'emails'		=> $winsandwants->getEmails(),
+
+        	                	 'user_id'	=> $winsandwants->getUserId()
+					);
+						
+					$wins->data = $data;
 
 					$this->_redirector->gotoUrl('/wins-and-wants/success/');
-						
+
 				} else if($form->share->isChecked()){
 					$bootstrap = $this->getInvokeArg('bootstrap');
 					$db = $bootstrap->getResource('db');
@@ -143,7 +163,7 @@ class WinsAndWantsController extends Zend_Controller_Action
 					$mail->setFrom($identity->email, $identity->username);
 					$mail->addTo($emails);
 					$mail->setSubject('Sharing my winsandwants');
-						
+
 					$txt = 'http://winsandwants.com/wins-and-wants/share/id/' . $sharePrimaryKeys['id'];
 
 					$mail->setBodyText($txt, 'UTF-8');
@@ -152,7 +172,7 @@ class WinsAndWantsController extends Zend_Controller_Action
 					$this->_redirector->gotoUrl('/wins-and-wants/success/');
 				} elseif ($form->print->isChecked()){
 					$wins = new Zend_Session_Namespace('wins');
-						
+
 					$wins->data = $winsandwants;
 					$this->_redirector->gotoUrl('/wins-and-wants/print/');
 				}
@@ -174,13 +194,13 @@ class WinsAndWantsController extends Zend_Controller_Action
 		$identity = $auth->getIdentity();
 
 		$winsandwantsMapper = new Application_Model_WinsAndWantsMapper();
-		$rows = $winsandwantsMapper->fetchByIdAndUserId($id, $identity->id);
+		$row = $winsandwantsMapper->fetchByIdAndUserId($id, $identity->id);
 
 		$wins = new Zend_Session_Namespace('wins');
 
-		$wins->data = $rows;
+		$wins->data = $row;
 
-		$this->view->wins = $wins->data;
+		$this->view->wins = $row;
 	}
 
 	public function validateAction()
@@ -201,7 +221,7 @@ class WinsAndWantsController extends Zend_Controller_Action
 		$wins = new Zend_Session_Namespace('wins');
 
 		if(isset($wins->data)){
-			$this->view->wins = $wins->data;
+			$this->view->wins = $wins;
 		} else {
 			$this->_redirector->gotoUrl('/dashboard/');
 		}
@@ -247,9 +267,9 @@ class WinsAndWantsController extends Zend_Controller_Action
 			$auth = Zend_Auth::getInstance();
 			$identity = $auth->getIdentity();
 
-			$rows = $winsandwantsMapper->fetchByIdAndUserId($id, $identity->id);
+			$row = $winsandwantsMapper->fetchByIdAndUserId($id, $identity->id);
 
-			$form->populate($rows[0]);
+			$form->populate($row);
 
 			if($request->isPost()) {
 				if($form->isValid($request->getPost())) {
@@ -266,8 +286,8 @@ class WinsAndWantsController extends Zend_Controller_Action
 
 					/*
 					 * The value of the submit buttons are retrieved through the request object parameters
-					 * since they do not exist in the $form object
-					 */
+					* since they do not exist in the $form object
+					*/
 					// Check which button was selected
 					if($form->save->isChecked()){
 
@@ -276,23 +296,23 @@ class WinsAndWantsController extends Zend_Controller_Action
 						$wins = new Zend_Session_Namespace('wins');
 
 						$data = array(
-        	                	 'Id' 		=> $winsandwants->getId(),
+        	            		 'id' 		=> $winsandwants->getId(),
 
-        	                	 'Created'	=> $winsandwants->getCreated(),
-        	                	 'Wins 01'	=> $winsandwants->getWins01(),
-        	                	 'Wins 02'	=> $winsandwants->getWins02(),
-        	                	 'Wins 03'	=> $winsandwants->getWins03(),
-        	                	 'Wins 04'	=> $winsandwants->getWins04(),
-        	                	 'Wins 05'	=> $winsandwants->getWins05(),
-        	                	 'Wants 01'	=> $winsandwants->getWants01(),
-        	                	 'Wants 02'	=> $winsandwants->getWants02(),
-        	                	 'Wants 03'	=> $winsandwants->getWants03(),
-        	                	 'Wants 04'	=> $winsandwants->getWants04(),
-        	                	 'Wants 05'	=> $winsandwants->getWants05(),
+        	                	 'created'	=> $winsandwants->getCreated(),
+        	                	 'wins_01'	=> $winsandwants->getWins01(),
+        	                	 'wins_02'	=> $winsandwants->getWins02(),
+        	                	 'wins_03'	=> $winsandwants->getWins03(),
+        	                	 'wins_04'	=> $winsandwants->getWins04(),
+        	                	 'wins_05'	=> $winsandwants->getWins05(),
+        	                	 'wants_01'	=> $winsandwants->getWants01(),
+        	                	 'wants_02'	=> $winsandwants->getWants02(),
+        	                	 'wants_03'	=> $winsandwants->getWants03(),
+        	                	 'wants_04'	=> $winsandwants->getWants04(),
+        	                	 'wants_05'	=> $winsandwants->getWants05(),
 
-        	                	 'Emails'		=> $winsandwants->getEmails(),
+        	                	 'emails'		=> $winsandwants->getEmails(),
 
-        	                	 'User Id'	=> $winsandwants->getUserId()
+        	                	 'user_id'	=> $winsandwants->getUserId()
 						);
 
 						$wins->data = $data;
@@ -306,23 +326,23 @@ class WinsAndWantsController extends Zend_Controller_Action
 						$wins = new Zend_Session_Namespace('wins');
 
 						$data = array(
-                        		 'Id' 		=> $winsandwants->getId(),
+        	                	 'id' 		=> $winsandwants->getId(),
 
-                        		 'Created'	=> $winsandwants->getCreated(),
-                        		 'Wins 01'	=> $winsandwants->getWins01(),
-                        		 'Wins 02'	=> $winsandwants->getWins02(),
-                        		 'Wins 03'	=> $winsandwants->getWins03(),
-                        		 'Wins 04'	=> $winsandwants->getWins04(),
-                        		 'Wins 05'	=> $winsandwants->getWins05(),
-                        		 'Wants 01'	=> $winsandwants->getWants01(),
-                        		 'Wants 02'	=> $winsandwants->getWants02(),
-                        		 'Wants 03'	=> $winsandwants->getWants03(),
-                        		 'Wants 04'	=> $winsandwants->getWants04(),
-                        		 'Wants 05'	=> $winsandwants->getWants05(),
+        	                	 'created'	=> $winsandwants->getCreated(),
+        	                	 'wins_01'	=> $winsandwants->getWins01(),
+        	                	 'wins_02'	=> $winsandwants->getWins02(),
+        	                	 'wins_03'	=> $winsandwants->getWins03(),
+        	                	 'wins_04'	=> $winsandwants->getWins04(),
+        	                	 'wins_05'	=> $winsandwants->getWins05(),
+        	                	 'wants_01'	=> $winsandwants->getWants01(),
+        	                	 'wants_02'	=> $winsandwants->getWants02(),
+        	                	 'wants_03'	=> $winsandwants->getWants03(),
+        	                	 'wants_04'	=> $winsandwants->getWants04(),
+        	                	 'wants_05'	=> $winsandwants->getWants05(),
 
-                        		 'Emails'		=> $winsandwants->getEmails(),
+        	                	 'emails'		=> $winsandwants->getEmails(),
 
-                        		 'User Id'	=> $winsandwants->getUserId()
+        	                	 'user_id'	=> $winsandwants->getUserId()
 						);
 
 						$wins->data = $data;
@@ -435,7 +455,7 @@ class WinsAndWantsController extends Zend_Controller_Action
 		if(isset($id)){
 			$shareMapper = new Application_Model_ShareMapper();
 			$rows = $shareMapper->find($id);
-				
+
 			// we need to extract the shared_wins and shared_wants if any
 			// then we need to retrieve the wins_and_wants and specific wins and wants of
 			// how do we do that?
@@ -451,36 +471,36 @@ class WinsAndWantsController extends Zend_Controller_Action
 
 /*if($primaryKeys != null){
  $winsandwants->setId($primaryKeys['id']);
- }
+}
 
- $data = array(
- 'id' 		=> $winsandwants->getId(),
+$data = array(
+'id' 		=> $winsandwants->getId(),
 
- 'created'	=> $winsandwants->getCreated(),
- 'wins_01'	=> $winsandwants->getWins01(),
- 'wins_02'	=> $winsandwants->getWins02(),
- 'wins_03'	=> $winsandwants->getWins03(),
- 'wins_04'	=> $winsandwants->getWins04(),
- 'wins_05'	=> $winsandwants->getWins05(),
- 'wants_01'	=> $winsandwants->getWants01(),
- 'wants_02'	=> $winsandwants->getWants02(),
- 'wants_03'	=> $winsandwants->getWants03(),
- 'wants_04'	=> $winsandwants->getWants04(),
- 'wants_05'	=> $winsandwants->getWants05(),
+'created'	=> $winsandwants->getCreated(),
+'wins_01'	=> $winsandwants->getWins01(),
+'wins_02'	=> $winsandwants->getWins02(),
+'wins_03'	=> $winsandwants->getWins03(),
+'wins_04'	=> $winsandwants->getWins04(),
+'wins_05'	=> $winsandwants->getWins05(),
+'wants_01'	=> $winsandwants->getWants01(),
+'wants_02'	=> $winsandwants->getWants02(),
+'wants_03'	=> $winsandwants->getWants03(),
+'wants_04'	=> $winsandwants->getWants04(),
+'wants_05'	=> $winsandwants->getWants05(),
 
- 'wins_01_cb'	=> $winsandwants->getWins01cb(),
- 'wins_02_cb'	=> $winsandwants->getWins02cb(),
- 'wins_03_cb'	=> $winsandwants->getWins03cb(),
- 'wins_04_cb'	=> $winsandwants->getWins04cb(),
- 'wins_05_cb'	=> $winsandwants->getWins05cb(),
- 'wants_01_cb'	=> $winsandwants->getWants01cb(),
- 'wants_02_cb'	=> $winsandwants->getWants02cb(),
- 'wants_03_cb'	=> $winsandwants->getWants03cb(),
- 'wants_04_cb'	=> $winsandwants->getWants04cb(),
- 'wants_05_cb'	=> $winsandwants->getWants05cb(),
- 'emails'		=> $winsandwants->getEmails(),
- 'user_id'	=> $winsandwants->getUserId()
- );*/
+'wins_01_cb'	=> $winsandwants->getWins01cb(),
+'wins_02_cb'	=> $winsandwants->getWins02cb(),
+'wins_03_cb'	=> $winsandwants->getWins03cb(),
+'wins_04_cb'	=> $winsandwants->getWins04cb(),
+'wins_05_cb'	=> $winsandwants->getWins05cb(),
+'wants_01_cb'	=> $winsandwants->getWants01cb(),
+'wants_02_cb'	=> $winsandwants->getWants02cb(),
+'wants_03_cb'	=> $winsandwants->getWants03cb(),
+'wants_04_cb'	=> $winsandwants->getWants04cb(),
+'wants_05_cb'	=> $winsandwants->getWants05cb(),
+'emails'		=> $winsandwants->getEmails(),
+'user_id'	=> $winsandwants->getUserId()
+);*/
 
 
 

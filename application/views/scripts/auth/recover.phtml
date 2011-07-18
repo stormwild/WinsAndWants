@@ -3,7 +3,12 @@
 
 echo $this->errors ? $this->formErrors($this->errors) : '';
 
-$this->form->setAction($this->url());
-echo $this->form;
+if(is_null($this->form)){
+	echo '<br /><p>' . $this->msg . '</p>';
+} else {
+	$this->form->setAction($this->url());
+	echo $this->form;
+}
 echo $this->email ? $this->email : 'none';
+
 ?>

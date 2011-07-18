@@ -5,59 +5,59 @@
 <table border="1" id='hor-minimalist-b'>
   <tr>
     <th scope="row">Id</th>
-    <td><?php echo $this->wins[0]['id']; ?></td>
+    <td><?php echo $this->wins['id']; ?></td>
   </tr>
   <tr>
     <th scope="row">Created</th>
-    <td><?php echo $this->wins[0]['created']; ?></td>
+    <td><?php echo $this->wins['created']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wins 01</th>
-    <td><?php echo $this->wins[0]['wins_01']; ?></td>
+    <td><?php echo $this->wins['wins_01']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wins 02</th>
-    <td><?php echo $this->wins[0]['wins_02']; ?></td>
+    <td><?php echo $this->wins['wins_02']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wins 03</th>
-    <td><?php echo $this->wins[0]['wins_03']; ?></td>
+    <td><?php echo $this->wins['wins_03']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wins 04</th>
-    <td><?php echo $this->wins[0]['wins_04']; ?></td>
+    <td><?php echo $this->wins['wins_04']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wins 05</th>
-    <td><?php echo $this->wins[0]['wins_05']; ?></td>
+    <td><?php echo $this->wins['wins_05']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wants 01</th>
-    <td><?php echo $this->wins[0]['wants_01']; ?></td>
+    <td><?php echo $this->wins['wants_01']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wants 02</th>
-    <td><?php echo $this->wins[0]['wants_02']; ?></td>
+    <td><?php echo $this->wins['wants_02']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wants 03</th>
-    <td><?php echo $this->wins[0]['wants_03']; ?></td>
+    <td><?php echo $this->wins['wants_03']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wants 04</th>
-    <td><?php echo $this->wins[0]['wants_04']; ?></td>
+    <td><?php echo $this->wins['wants_04']; ?></td>
   </tr>
   <tr>
     <th scope="row">Wants 05</th>
-    <td><?php echo $this->wins[0]['wants_05']; ?></td>
+    <td><?php echo $this->wins['wants_05']; ?></td>
   </tr>
   <tr>
     <th scope="row">User Id</th>
-    <td><?php echo $this->wins[0]['user_id']; ?></td>
+    <td><?php echo $this->wins['user_id']; ?></td>
   </tr>
 </table>
 <?php 
-echo "<p><a href='" . $this->baseUrl() . "/wins-and-wants/edit/id/" . $this->wins[0]['id'] . "'>Edit</a></p>";
+echo "<p><a href='" . $this->baseUrl() . "/wins-and-wants/edit/id/" . $this->wins['id'] . "'>Edit</a></p>";
 ?>
 <p>Return to <a href="<?php echo $this->baseUrl() . "/wins-and-wants/list"; ?>">List</a></p>
 

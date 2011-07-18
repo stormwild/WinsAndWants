@@ -73,13 +73,17 @@ class Application_Model_WinsAndWantsMapper
 	}
 	
 	public function fetchByIdAndUserId($id, $user_id) {
+		
 		$table = $this->getDbTable();
 		
 		$select = $table->select()->where('user_id = ?', $user_id)->where('id = ?', $id);
 		
-		$resultSet = $table->fetchAll($select);
+		$row = $table->fetchRow($select);
 		
-		return $resultSet;
+		//$winsandwant = new Application_Model_WinsAndWants((array)$row->toArray());
+		
+		return $row->toArray();
+		
 	}
 }
 
