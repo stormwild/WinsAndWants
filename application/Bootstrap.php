@@ -6,7 +6,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$this->bootstrap('view');
         $view = $this->getResource('view');
         $view->doctype('HTML5');
-        $view->headTitle('Wins and Wants');       
+        $view->headTitle('WinsAndWants | Goal Setting & Sharing');       
 
         /**
          * To obtain a valid baseUrl set an instance of the request object to the frontController
@@ -17,8 +17,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$request = new Zend_Controller_Request_Http();		
 		$front->setRequest($request); 
 		
-        $view->headLink()->prependStylesheet($view->baseUrl('css/HTML5_twoColFixRtHdr.css'));
-        $view->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
+        //$view->headLink()->prependStylesheet($view->baseUrl('css/HTML5_twoColFixRtHdr.css'));
+        //$view->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
         
 	}
 

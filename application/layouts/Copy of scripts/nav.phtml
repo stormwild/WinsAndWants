@@ -4,8 +4,8 @@ $auth = Zend_Auth::getInstance();
 if($auth->hasIdentity()):
 	$identity = $auth->getIdentity();
 ?>
-<nav id="main-menu">
-<ul class="wrapper sf-menu">
+<nav>
+<ul class="sf-menu">
 	<li class="current"><a href="<?php echo $this->baseUrl() . "/dashboard"; ?>">Dashboard</a></li>
 	<li><a href="<?php echo $this->baseUrl() . "/index/ceospeaks"; ?>">CEO
 	Speaks</a></li>
@@ -31,8 +31,8 @@ if($auth->hasIdentity()):
 <?php
 else :
 ?> 
-<nav id="main-menu">
-<ul class="wrapper sf-menu">
+<nav>
+<ul class="sf-menu">
 	<li class="current"><a href="<?php echo $this->baseUrl() . "/"; ?>">Home</a></li>
 	<li><a href="<?php echo $this->baseUrl() . "/index/ceospeaks"; ?>">CEO
 	Speaks</a></li>

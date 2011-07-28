@@ -1,0 +1,32 @@
+<?php echo $this->doctype() . "\n"; ?>
+<html lang=en>
+<head>
+<?php echo $this->headTitle() . "\n"; ?>
+<meta charset=utf-8>
+<?php $this->headLink()->appendStylesheet($this->baseUrl() . '/css/superfish.css'); ?>
+<?php echo $this->headLink() . "\n"; ?>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<?php 
+$this->headScript()->appendFile($this->baseUrl() . '/js/superfish.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/supersubs.js');
+$this->headScript()->appendFile($this->baseUrl() . '/js/nav.js');
+?>
+<?php echo $this->headScript() . "\n"; ?>
+</head>
+
+<div class="container">
+
+  <?php echo $this->render('header.phtml') ?>
+  
+  <div id="content">
+  <?php echo $this->layout()->content; ?>
+  </div>
+  
+  <?php echo $this->render('footer.phtml') ?>
+  	
+<!-- end .container --></div>
+</body>
+</html>
+

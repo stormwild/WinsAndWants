@@ -172,7 +172,9 @@ class AuthController extends Zend_Controller_Action
 					
 					$userMapper->save($user);
 					
-					$this->view->email = var_dump($user);
+					//$this->view->email = var_dump($user);
+					
+					$this->view->msg = "Your details have been sent.";
 					
 					$this->sendRecoverEmail($user);
 					
