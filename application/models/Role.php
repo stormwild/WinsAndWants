@@ -57,7 +57,7 @@ class Application_Model_Role
 		$this->_name = $name;
 	}
 
-	public function geName()
+	public function getName()
 	{
 		return $this->_name;
 	}

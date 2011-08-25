@@ -33,6 +33,7 @@ echo $this->headScript() . "\n";
 <body>
 <div id="header-container"> <?php echo $this->render('header.phtml') ?> </div>
 <!-- end #header-container --> 
+<div id="bg-wrapper">
 <?php echo $this->render('nav.phtml') ?>
 <div id="main-container">
   <div id="main" class="wrapper">
@@ -44,6 +45,7 @@ echo $this->headScript() . "\n";
   <br class="clearfix" />
 </div>
 <!-- end #main-container -->
+</div><!-- end #bg-wrapper  -->
 <div id="footer-container"> <?php echo $this->render('footer.phtml') ?> </div>
 <!-- end #footer-container --> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 

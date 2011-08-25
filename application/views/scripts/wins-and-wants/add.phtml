@@ -15,7 +15,7 @@ if(is_null($this->form)){
 <?php echo '<br /><p>' . $this->msg . '</p>'; ?>
 <form id="winsform" name="winsform" method="post" action="">
 <fieldset class="date">
-<div class="wrapper"><?php echo $this->form->created; ?></div>
+<div class="form-wrapper"><?php echo $this->form->created; ?></div>
 </fieldset>
 <fieldset><legend><span>Wins</span></legend> <span class="share_label">Share <input type="checkbox" class="checkall" /></span>
 <ol>
@@ -36,7 +36,7 @@ if(is_null($this->form)){
 </ol>
 </fieldset>
 <fieldset class="share">
-<div class="wrapper">
+<div class="form-wrapper">
 <?php echo $this->form->emails; ?>
 <p class="instructions">Enter email addresses of people you want to
 share this with. Insert a comma between email addresses.</p>

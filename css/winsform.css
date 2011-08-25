@@ -40,8 +40,8 @@ fieldset li {
 	padding-bottom: 1em;
 }
 
-fieldset.date .wrapper,
-fieldset.share .wrapper {
+fieldset.date .form-wrapper,
+fieldset.share .form-wrapper {
 	padding: 1em;
 }
 

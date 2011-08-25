@@ -1,7 +1,25 @@
 /* custom style */
 html, body {
 	background-color: #f0f7f9;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+}
+p {	
+	margin-bottom: 1.5em;
+}
+em {
+	font-style: italic;
+}
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"], 
+textarea { width: auto; }
+
+dt label {
+	margin-bottom: .5em;
+}
+dd {
+	margin-bottom: 1em;
 }
 #header-container {
 	background: #3c5051 url(../img/header-container-bg.jpg) repeat-x;	
@@ -9,16 +27,20 @@ html, body {
 #header-container header {
 	height: 120px;
 	color: #fefefe;
-	background: url(../img/header-bg.png) no-repeat;
 }
 #header-container header #logo {
 		
 }
+#bg-wrapper {
+	background: #fff url(../img/nav-bg.png) repeat-x;
+}
 #main-menu {
 	height: 30px;
+	padding-top: 10px;
 }
 #main-menu ul {
-	
+	padding-bottom: 15px;
+	border-bottom: 1px solid #b8d3d9;	
 }
 #main-menu ul li {
 	border-right: 1px solid #354648;
@@ -26,23 +48,38 @@ html, body {
 	margin-right: 10px;
 	padding-right: 10px;
 }
-#main-menu ul li a[href] {
+#main-menu ul li a {
 	color: #354648;
+	text-decoration: none;
+}
+#main-menu ul li a:hover {
+	color: #4189a6;
+	text-decoration: underline;	
 }
 #main-menu ul li ul {
 	display: none;
 }
 #main-container {
-	background-color: #fff;
+	/*background-color: #fff;*/
 }
 #main-container #main {
-	color: #333;
+	color: #4189a6;
 	height: 500px;
-	padding-top: 20px;
+	padding-top: 60px;
 }
 #main-container #main #content {
 	float: left;		
 	width: 630px;
+}
+#main-container #main #content .welcome {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+}
+#main-container #main #content .welcome p { 
+	line-height: 24px;
+}
+#main-container #main #content .welcome h1 {
+	font-size: 13px;
 }
 #main-container #main aside {
 	float: right;
@@ -56,6 +93,7 @@ html, body {
 #footer-container footer {
 	color: #4189a6;	
 	padding-top: 20px;
+	margin-bottom: 40px;
 }
 #footer-container footer p,
 #footer-container footer nav ul {

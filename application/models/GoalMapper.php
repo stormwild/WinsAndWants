@@ -1,9 +1,9 @@
 <?php
 
-class Application_Model_RoleMapper
+class Application_Model_GoalMapper
 {
 	protected $_dbTable;
-
+	
 	public function setDbTable($dbTable)
 	{
 		if(is_string($dbTable)) {
@@ -15,23 +15,21 @@ class Application_Model_RoleMapper
 		$this->_dbTable = $dbTable;
 		return $this;
 	}
-
+	
 	public function getDbTable()
 	{
 		if(null === $this->_dbTable){
-			$this->setDbTable('Application_Model_DbTable_Role');
+			$this->setDbTable('Application_Model_DbTable_Goal');
 		}
 		return $this->_dbTable;
 	}
-
-	public function find($id, Application_Model_Role &$role)
+	
+	public function find($id, Application_Model_Goal $goal)
 	{
 		$result = $this->getDbTable()->find($id);
 		if(0 === count($result)) {
 			return;
 		}
-		$role->setOptions((array)$result->current());
+		$goal->setOptions((array)$result->current());
 	}
-
 }
-
