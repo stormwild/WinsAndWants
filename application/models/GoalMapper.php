@@ -30,6 +30,57 @@ class Application_Model_GoalMapper
 		if(0 === count($result)) {
 			return;
 		}
-		$goal->setOptions((array)$result->current());
+		$goal->setOptions($result->current()->toArray());
+	}
+	
+	public function save(Application_Model_Goal $goal)
+	{
+		$data = array(
+			'id' 		=> $goal->getId(),
+			'goal'		=> $goal->getGoal(),
+			'notes' 	=> $goal->getNotes(),
+			'goal_date' => $goal->getGoalDate(),
+			'done'		=> $goal->getDone(),
+			'user_id'	=> $goal->getUserId(),
+			'created'	=> $goal->getCreated()		
+		);
+		
+		if (null === ($id = $goal->getId())) {
+			unset($data['id']);
+			return $this->getDbTable()->insert($data);
+		} else {
+			$this->getDbTable()->update($data, array('id = ?' => $id));
+		}
+	}
+	
+	public function fetchAllByUserId($user_id)
+	{
+	
+		$table = $this->getDbTable();
+	
+		$select = $table->select()->where('user_id = ?', $user_id);
+	
+		$resultSet = $table->fetchAll($select);
+	
+		return $resultSet;
+	}
+	
+	public function delete($id) 
+	{
+		$table = $this->getDbTable();
+		
+		/* $select = $table->select();
+		
+		$select->where('id = ?', $id); */
+		
+		$db = $table->getAdapter();
+		
+		$where = $db->quoteInto('id = ?', $id);
+
+		//$rowsDeleted = $table->delete($select);
+
+		$rowsDeleted = $table->delete($where);
+		
+		return $rowsDeleted; 
 	}
 }

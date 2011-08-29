@@ -1,0 +1,15 @@
+<h2>Goal</h2>
+
+<table>
+<tbody>
+<?php foreach ($this->goal as $key => $value) : ?>
+<?php if($key != 'id' && $key != 'user_id') : ?>
+<tr><td><?php echo ucwords(str_replace("_", " ", $key)); ?></td><td><?php if($key == 'goal_date') : echo date_format(new DateTime($value), 'Y-m-d'); else : echo $value; endif; ?></td></tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</tbody>
+</table>
+
+<p><a href="<?php echo $this->baseUrl() . '/goal/edit/id/' . $this->goal['id']; ?>">Edit</a></p>
+
+<p>Return to <a href="<?php echo $this->baseUrl() . "/goal/"; ?>">Goals</a></p>

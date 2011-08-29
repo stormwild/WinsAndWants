@@ -107,3 +107,7 @@ dd {
 .clearfix {
 	clear: both;
 }
+.panel {
+	border: 1px solid #B8D3D9;
+	padding: 1em;
+}

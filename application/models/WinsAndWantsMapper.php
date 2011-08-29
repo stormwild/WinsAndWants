@@ -80,8 +80,6 @@ class Application_Model_WinsAndWantsMapper
 		
 		$row = $table->fetchRow($select);
 		
-		//$winsandwant = new Application_Model_WinsAndWants((array)$row->toArray());
-		
 		return $row->toArray();
 		
 	}

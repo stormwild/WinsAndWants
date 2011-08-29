@@ -1,0 +1,28 @@
+
+<h2>Goals</h2>
+
+<table>
+<tbody>
+<?php if(!empty($this->rows)) : $row = $this->rows[0]; ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') : echo 'View'; elseif($key == 'goal' || $key == 'goal_date') : echo ucwords(str_replace("_", " ", $key)); endif; ?></td><?php endforeach; ?>
+<td>Edit</td>
+<td>Delete</td>
+</tr>
+<?php foreach ($this->rows as $row) : ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') :?><a href="<?php echo $this->baseUrl() . '/goal/view/id/' . $value; ?>">View</a> <?php elseif($key == 'goal') : echo $value; elseif($key == 'goal_date') : echo date_format(new DateTime($value), 'l jS \of F Y'); endif; ?></td><?php endforeach; ?>
+<td><a href="<?php echo $this->baseUrl() . '/goal/edit/id/' . $row['id']; ?>">Edit</a></td>
+<td><a href="<?php echo $this->baseUrl() . '/goal/delete/id/' . $row['id']; ?>">Delete</a></td>
+</tr>
+<?php endforeach; else : echo '<p>No goals yet. Add one now</p>'; endif; ?>
+</tbody>
+</table>
+
+<br />
+
+<p><a href="<?php echo $this->url(array('action' => 'add', 'controller' => 'goal')) ?>/">Add Goal</a></p>
+
+<br />
+
+<p>Return to <a href="<?php echo $this->baseUrl() . "/dashboard/"; ?>">Dashboard</a></p>

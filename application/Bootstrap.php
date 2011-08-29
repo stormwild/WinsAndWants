@@ -21,6 +21,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         //$view->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
         
 	}
+	
+	/* protected function _initFilter() {
+		HTMLPurifier_Bootstrap::registerAutoload();
+        $config = HTMLPurifier_Config::createDefault();
+        $config->set('Attr.EnableID', true);
+        $config->set('HTML.Strict', true);
+        Zend_Registry::set('purifier', new HTMLPurifier($config));
+	} */
 
 }
 

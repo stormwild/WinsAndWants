@@ -1,0 +1,10 @@
+<h2>Goal</h2>
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
+?>
+
+<p>Return to <a href="<?php echo $this->baseUrl() . "/goal/"; ?>">Goals</a></p>

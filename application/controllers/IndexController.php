@@ -10,7 +10,14 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		// action body
+		/* $this->view->textarea = new Zend_Form_Element_Textarea('comment');
+    	$this->view->textarea->addFilter(new Wins_Filter_HTMLPurifier());
+    	
+    	if($this->getRequest()->isPost())
+    	{
+    		$this->view->textarea->isValid($this->_getParam('comment'));
+    	}    */ 	
+    	
     }
 
     public function ceospeaksAction()

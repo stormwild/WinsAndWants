@@ -65,13 +65,13 @@ class Application_Model_UserMapper
 		}
 	}
 
-	public function find($id, Application_Model_User &$user)
+	public function find($id, Application_Model_User $user)
 	{
 		$result = $this->getDbTable()->find($id);
 		if(0 === count($result)) {
 			return;
 		}
-		$user->setOptions((array)$result->current());
+		$user->setOptions($result->current()->toArray());
 	}
 
 	public function fetchAll()

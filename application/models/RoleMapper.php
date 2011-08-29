@@ -24,13 +24,13 @@ class Application_Model_RoleMapper
 		return $this->_dbTable;
 	}
 
-	public function find($id, Application_Model_Role &$role)
+	public function find($id, Application_Model_Role $role)
 	{
 		$result = $this->getDbTable()->find($id);
 		if(0 === count($result)) {
 			return;
 		}
-		$role->setOptions((array)$result->current());
+		$role->setOptions($result->current()->toArray());
 	}
 
 }
