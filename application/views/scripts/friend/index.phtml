@@ -1,0 +1,26 @@
+
+<h2>Friends</h2>
+
+<table>
+<tbody>
+<?php if(!empty($this->rows)) : $row = $this->rows[0]; ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') : echo 'View'; else : echo ucwords(str_replace("_", " ", $key)); endif; ?></td><?php endforeach; ?>
+<td>Edit</td>
+<td>Delete</td>
+</tr>
+<?php foreach ($this->rows as $row) : ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') :?><a href="<?php echo $this->baseUrl() . '/friend/find/id/' . $value; ?>">View</a> <?php else : echo $value; endif; ?></td><?php endforeach; ?>
+</tr>
+<?php endforeach; else : echo '<p>No friends yet. Add one now</p>'; endif; ?>
+</tbody>
+</table>
+
+<br />
+
+<p><a href="<?php /*echo $this->url(array('action' => 'add', 'controller' => 'friend'))*/ ?>/">Members</a></p>
+
+<br />
+
+<p>Return to <a href="<?php echo $this->baseUrl() . "/dashboard/"; ?>">Dashboard</a></p>

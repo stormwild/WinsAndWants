@@ -1,264 +1,259 @@
 <?xml version="1.0"?>
 <projectProfile type="default" version="1.10">
-	<projectDirectory>
-		<projectProfileFile filesystemName=".zfproject.xml" />
-		<applicationDirectory classNamePrefix="Application_">
-			<apisDirectory enabled="false" />
-			<configsDirectory>
-				<applicationConfigFile type="ini" />
-			</configsDirectory>
-			<controllersDirectory>
-				<controllerFile controllerName="Index">
-					<actionMethod actionName="index" />
-					<actionMethod actionName="ceospeaks" />
-					<actionMethod actionName="goalsetting" />
-					<actionMethod actionName="winstemplate" />
-					<actionMethod actionName="mastermindPrinciple" />
-					<actionMethod actionName="use" />
-					<actionMethod actionName="guidelines" />
-					<actionMethod actionName="purchase" />
-					<actionMethod actionName="privacy" />
-					<actionMethod actionName="terms" />
-					<actionMethod actionName="contact" />
-					<actionMethod actionName="faqs" />
-					<actionMethod actionName="donations" />
-					<actionMethod actionName="update" />
-				</controllerFile>
-				<controllerFile controllerName="Error" />
-				<controllerFile controllerName="Auth">
-					<actionMethod actionName="index" />
-					<actionMethod actionName="register" />
-					<actionMethod actionName="login" />
-					<actionMethod actionName="logout" />
-					<actionMethod actionName="confirm" />
-					<actionMethod actionName="recover" />
-				</controllerFile>
-				<controllerFile controllerName="Dashboard">
-					<actionMethod actionName="index" />
-				</controllerFile>
-				<controllerFile controllerName="WinsAndWants">
-					<actionMethod actionName="index" />
-					<actionMethod actionName="add" />
-					<actionMethod actionName="view" />
-					<actionMethod actionName="validate" />
-					<actionMethod actionName="success" />
-					<actionMethod actionName="print" />
-					<actionMethod actionName="list" />
-					<actionMethod actionName="edit" />
-					<actionMethod actionName="share" />
-				</controllerFile>
-				<controllerFile controllerName="Service">
-					<actionMethod actionName="index" />
-					<actionMethod actionName="validate" />
-				</controllerFile>
-				<controllerFile controllerName="Goals">
-					<actionMethod actionName="index" />
-				</controllerFile>
-			</controllersDirectory>
-			<formsDirectory>
-				<formFile formName="Registration" />
-				<formFile formName="Login" />
-				<formFile formName="WinsAndWants" />
-				<formFile formName="Recover" />
-			</formsDirectory>
-			<layoutsDirectory enabled="false" />
-			<modelsDirectory>
-				<dbTableDirectory>
-					<dbTableFile dbTableName="User" />
-					<dbTableFile dbTableName="Role" />
-					<dbTableFile dbTableName="UserHasRole" />
-					<dbTableFile dbTableName="WinsAndWants" />
-					<dbTableFile dbTableName="Share" />
-					<dbTableFile dbTableName="Comment" />
-				</dbTableDirectory>
-				<modelFile modelName="User" />
-				<modelFile modelName="UserMapper" />
-				<modelFile modelName="Role" />
-				<modelFile modelName="RoleMapper" />
-				<modelFile modelName="UserHasRole" />
-				<modelFile modelName="UserHasRoleMapper" />
-				<modelFile modelName="WinsAndWants" />
-				<modelFile modelName="WinsAndWantsMapper" />
-				<modelFile modelName="Share" />
-				<modelFile modelName="ShareMapper" />
-				<modelFile modelName="Comment" />
-				<modelFile modelName="CommentMapper" />
-			</modelsDirectory>
-			<modulesDirectory enabled="false" />
-			<viewsDirectory>
-				<viewScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="index" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Error">
-						<viewScriptFile forActionName="error" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Auth">
-						<viewScriptFile forActionName="index" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Auth">
-						<viewScriptFile forActionName="register" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Auth">
-						<viewScriptFile forActionName="login" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Auth">
-						<viewScriptFile forActionName="logout" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Auth">
-						<viewScriptFile forActionName="confirm" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Dashboard">
-						<viewScriptFile forActionName="index" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="index" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="add" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="view" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="validate" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Service">
-						<viewScriptFile forActionName="index" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Service">
-						<viewScriptFile forActionName="validate" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="success" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="print" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="list" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="ceospeaks" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="goalsetting" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="winstemplate" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="mastermindPrinciple" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="use" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="guidelines" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="purchase" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="privacy" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="terms" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="contact" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="faqs" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="donations" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="edit" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="WinsAndWants">
-						<viewScriptFile forActionName="share" />
-					</viewControllerScriptsDirectory>
-					<viewControllerScriptsDirectory
-						forControllerName="Index">
-						<viewScriptFile forActionName="update" />
-					</viewControllerScriptsDirectory>
-				</viewScriptsDirectory>
-				<viewHelpersDirectory />
-				<viewFiltersDirectory enabled="false" />
-			</viewsDirectory>
-			<bootstrapFile filesystemName="Bootstrap.php" />
-		</applicationDirectory>
-		<dataDirectory enabled="false">
-			<cacheDirectory enabled="false" />
-			<searchIndexesDirectory enabled="false" />
-			<localesDirectory enabled="false" />
-			<logsDirectory enabled="false" />
-			<sessionsDirectory enabled="false" />
-			<uploadsDirectory enabled="false" />
-		</dataDirectory>
-		<docsDirectory>
-			<file filesystemName="README.txt" />
-		</docsDirectory>
-		<libraryDirectory>
-			<zfStandardLibraryDirectory enabled="false" />
-		</libraryDirectory>
-		<publicDirectory>
-			<publicStylesheetsDirectory enabled="false" />
-			<publicScriptsDirectory enabled="false" />
-			<publicImagesDirectory enabled="false" />
-			<publicIndexFile filesystemName="index.php" />
-			<htaccessFile filesystemName=".htaccess" />
-		</publicDirectory>
-		<projectProvidersDirectory enabled="false" />
-		<temporaryDirectory enabled="false" />
-		<testsDirectory>
-			<testPHPUnitConfigFile filesystemName="phpunit.xml" />
-			<testApplicationDirectory>
-				<testApplicationBootstrapFile
-					filesystemName="bootstrap.php" />
-				<testApplicationControllerDirectory>
-					<testApplicationControllerFile />
-					<testApplicationControllerFile />
-					<testApplicationControllerFile />
-					<testApplicationControllerFile />
-				</testApplicationControllerDirectory>
-			</testApplicationDirectory>
-			<testLibraryDirectory>
-				<testLibraryBootstrapFile filesystemName="bootstrap.php" />
-			</testLibraryDirectory>
-		</testsDirectory>
-	</projectDirectory>
+  <projectDirectory>
+    <projectProfileFile filesystemName=".zfproject.xml"/>
+    <applicationDirectory classNamePrefix="Application_">
+      <apisDirectory enabled="false"/>
+      <configsDirectory>
+        <applicationConfigFile type="ini"/>
+      </configsDirectory>
+      <controllersDirectory>
+        <controllerFile controllerName="Index">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="ceospeaks"/>
+          <actionMethod actionName="goalsetting"/>
+          <actionMethod actionName="winstemplate"/>
+          <actionMethod actionName="mastermindPrinciple"/>
+          <actionMethod actionName="use"/>
+          <actionMethod actionName="guidelines"/>
+          <actionMethod actionName="purchase"/>
+          <actionMethod actionName="privacy"/>
+          <actionMethod actionName="terms"/>
+          <actionMethod actionName="contact"/>
+          <actionMethod actionName="faqs"/>
+          <actionMethod actionName="donations"/>
+          <actionMethod actionName="update"/>
+        </controllerFile>
+        <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Auth">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="register"/>
+          <actionMethod actionName="login"/>
+          <actionMethod actionName="logout"/>
+          <actionMethod actionName="confirm"/>
+          <actionMethod actionName="recover"/>
+        </controllerFile>
+        <controllerFile controllerName="Dashboard">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="WinsAndWants">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="view"/>
+          <actionMethod actionName="validate"/>
+          <actionMethod actionName="success"/>
+          <actionMethod actionName="print"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="share"/>
+        </controllerFile>
+        <controllerFile controllerName="Service">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="validate"/>
+        </controllerFile>
+        <controllerFile controllerName="Goals">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Friend">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="find"/>
+          <actionMethod actionName="add"/>
+        </controllerFile>
+        <controllerFile controllerName="Member">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="find"/>
+        </controllerFile>
+      </controllersDirectory>
+      <formsDirectory>
+        <formFile formName="Registration"/>
+        <formFile formName="Login"/>
+        <formFile formName="WinsAndWants"/>
+        <formFile formName="Recover"/>
+        <formFile formName="Friend"/>
+      </formsDirectory>
+      <layoutsDirectory enabled="false"/>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Role"/>
+          <dbTableFile dbTableName="UserHasRole"/>
+          <dbTableFile dbTableName="WinsAndWants"/>
+          <dbTableFile dbTableName="Share"/>
+          <dbTableFile dbTableName="Comment"/>
+          <dbTableFile dbTableName="Friend"/>
+        </dbTableDirectory>
+        <modelFile modelName="User"/>
+        <modelFile modelName="UserMapper"/>
+        <modelFile modelName="Role"/>
+        <modelFile modelName="RoleMapper"/>
+        <modelFile modelName="UserHasRole"/>
+        <modelFile modelName="UserHasRoleMapper"/>
+        <modelFile modelName="WinsAndWants"/>
+        <modelFile modelName="WinsAndWantsMapper"/>
+        <modelFile modelName="Share"/>
+        <modelFile modelName="ShareMapper"/>
+        <modelFile modelName="Comment"/>
+        <modelFile modelName="CommentMapper"/>
+        <modelFile modelName="Friend"/>
+        <modelFile modelName="FriendMapper"/>
+      </modelsDirectory>
+      <modulesDirectory enabled="false"/>
+      <viewsDirectory>
+        <viewScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Error">
+            <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="register"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="confirm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Dashboard">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="view"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="validate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Service">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Service">
+            <viewScriptFile forActionName="validate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="success"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="print"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="ceospeaks"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="goalsetting"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="winstemplate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="mastermindPrinciple"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="use"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="guidelines"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="purchase"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="privacy"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="terms"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="contact"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="faqs"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="donations"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="WinsAndWants">
+            <viewScriptFile forActionName="share"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="update"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="find"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Member">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Member">
+            <viewScriptFile forActionName="find"/>
+          </viewControllerScriptsDirectory>
+        </viewScriptsDirectory>
+        <viewHelpersDirectory/>
+        <viewFiltersDirectory enabled="false"/>
+      </viewsDirectory>
+      <bootstrapFile filesystemName="Bootstrap.php"/>
+    </applicationDirectory>
+    <dataDirectory enabled="false">
+      <cacheDirectory enabled="false"/>
+      <searchIndexesDirectory enabled="false"/>
+      <localesDirectory enabled="false"/>
+      <logsDirectory enabled="false"/>
+      <sessionsDirectory enabled="false"/>
+      <uploadsDirectory enabled="false"/>
+    </dataDirectory>
+    <docsDirectory>
+      <file filesystemName="README.txt"/>
+    </docsDirectory>
+    <libraryDirectory>
+      <zfStandardLibraryDirectory enabled="false"/>
+    </libraryDirectory>
+    <publicDirectory>
+      <publicStylesheetsDirectory enabled="false"/>
+      <publicScriptsDirectory enabled="false"/>
+      <publicImagesDirectory enabled="false"/>
+      <publicIndexFile filesystemName="index.php"/>
+      <htaccessFile filesystemName=".htaccess"/>
+    </publicDirectory>
+    <projectProvidersDirectory enabled="false"/>
+    <temporaryDirectory enabled="false"/>
+    <testsDirectory>
+      <testPHPUnitConfigFile filesystemName="phpunit.xml"/>
+      <testApplicationDirectory>
+        <testApplicationBootstrapFile filesystemName="bootstrap.php"/>
+        <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
+          <testApplicationControllerFile/>
+        </testApplicationControllerDirectory>
+      </testApplicationDirectory>
+      <testLibraryDirectory>
+        <testLibraryBootstrapFile filesystemName="bootstrap.php"/>
+      </testLibraryDirectory>
+    </testsDirectory>
+  </projectDirectory>
 </projectProfile>

@@ -1,32 +1,31 @@
 <?php
 
-class Application_Model_Goal
+class Application_Model_Friend
 {
 	protected $_id;
-	protected $_goal;
-	protected $_notes;
-	protected $_goal_date;
-	protected $_done;
 	protected $_user_id;
-	protected $_created;
-
+	protected $_friend_user_id;
+	protected $_confirmed;
+	
 	public function __construct(array $options = null)
 	{
 		if (is_array($options)) {
 			$this->setOptions($options);
 		}
 	}
-
+	
 	public function setOptions(array $options)
 	{
 		$methods = get_class_methods($this);
-		foreach ($options as $key => $value) {
+		foreach ($options as $key => $value) {			
 			$pos = strpos($key, "_"); // get the index of the first underscore
+			$pos2 = strpost($key, "_", $pos + 1); // get the index of the 2nd underscore
+			
 			if($pos !== false) {
-				$key = substr_replace($key, strtoupper($key[$pos + 1]), $pos + 1, 1); // uppercase the character following the underscore
+				$key = substr_replace($key, array(strtoupper($key[$pos + 1]), strtoupper($key[$pos2 + 1])), array($pos + 1, $pos2 + 1), 1); // uppercase the character following the underscore
 				$key = str_replace("_", "", $key); // remove the underscore
 			}
-			
+				
 			$method = 'set' . ucfirst($key);
 			if (in_array($method, $methods)) {
 				$this->$method($value);
@@ -34,7 +33,7 @@ class Application_Model_Goal
 		}
 		return $this;
 	}
-
+	
 	public function __set($name, $value)
 	{
 		$method = 'set' . $name;
@@ -43,7 +42,7 @@ class Application_Model_Goal
 		}
 		$this->$method($value);
 	}
-
+	
 	public function __get($name)
 	{
 		$method = 'get' . $name;
@@ -52,55 +51,15 @@ class Application_Model_Goal
 		}
 		return $this->$method();
 	}
-
+	
 	public function setId($id)
 	{
 		$this->_id = $id;
 	}
-
+	
 	public function getId()
 	{
 		return $this->_id;
-	}
-
-	public function setGoal($goal)
-	{
-		$this->_goal = $goal;
-	}
-
-	public function getGoal()
-	{
-		return $this->_goal;
-	}
-	
-	public function setNotes($notes)
-	{
-		$this->_notes = $notes;
-	}
-	
-	public function getNotes()
-	{
-		return $this->_notes;
-	}
-	
-	public function setGoalDate($goal_date)
-	{
-		$this->_goal_date = $goal_date;
-	}
-
-	public function getGoalDate()
-	{
-		return $this->_goal_date;
-	}
-	
-	public function setDone($done)
-	{
-		$this->_done = $done;
-	}
-	
-	public function getDone()
-	{
-		return $this->_done;
 	}
 	
 	public function setUserId($user_id)
@@ -113,16 +72,25 @@ class Application_Model_Goal
 		return $this->_user_id;
 	}
 	
-	public function setCreated($created)
+	public function setFriendUserId($friend_user_id)
 	{
-		$this->_created = $created;
+		$this->_friend_user_id = $friend_user_id;
 	}
 	
-	public function getCreated()
+	public function getFriendUserId()
 	{
-		return $this->_created;
+		return $this->_friend_user_id;
 	}
 	
+	public function setConfirmed($confirmed)
+	{
+		$this->_confirmed = $confirmed;
+	}
+	
+	public function getConfirmed()
+	{
+		return $this->_confirmed;
+	}
 
 }
 
