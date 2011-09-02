@@ -1,0 +1,8 @@
+<h2>Profile</h2>
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
+?>

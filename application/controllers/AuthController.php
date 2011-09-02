@@ -104,6 +104,9 @@ class AuthController extends Zend_Controller_Action
 
 	public function confirmAction()
 	{
+		if(Zend_Auth::getInstance()->hasIdentity()){
+			$this->_redirect('dashboard');
+		}
 		// action body
 		define("MEMBER", 2);
 

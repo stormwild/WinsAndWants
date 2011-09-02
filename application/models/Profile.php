@@ -1,11 +1,12 @@
 <?php
 
-class Application_Model_Friend
+class Application_Model_Profile
 {
-	protected $_id;
 	protected $_user_id;
-	protected $_friend_user_id;
-	protected $_confirmed;
+	protected $_first_name;
+	protected $_last_name;
+	protected $_birthdate;
+	protected $_gender;
 	
 	public function __construct(array $options = null)
 	{
@@ -17,18 +18,13 @@ class Application_Model_Friend
 	public function setOptions(array $options)
 	{
 		$methods = get_class_methods($this);
-		foreach ($options as $key => $value) {			
+		foreach ($options as $key => $value) {
 			$pos = strpos($key, "_"); // get the index of the first underscore
-			$pos2 = strpost($key, "_", $pos + 1); // get the index of the 2nd underscore
-			
-			if($pos !== false && $pos2 !== false) {
-				$key = substr_replace($key, array(strtoupper($key[$pos + 1]), strtoupper($key[$pos2 + 1])), array($pos + 1, $pos2 + 1), 1); // uppercase the character following the underscore
-			} else {
+			if($pos !== false) {
 				$key = substr_replace($key, strtoupper($key[$pos + 1]), $pos + 1, 1); // uppercase the character following the underscore
+				$key = str_replace("_", "", $key); // remove the underscore
 			}
-
-			$key = str_replace("_", "", $key); // remove the underscore
-					
+				
 			$method = 'set' . ucfirst($key);
 			if (in_array($method, $methods)) {
 				$this->$method($value);
@@ -55,16 +51,6 @@ class Application_Model_Friend
 		return $this->$method();
 	}
 	
-	public function setId($id)
-	{
-		$this->_id = $id;
-	}
-	
-	public function getId()
-	{
-		return $this->_id;
-	}
-	
 	public function setUserId($user_id)
 	{
 		$this->_user_id = $user_id;
@@ -75,25 +61,44 @@ class Application_Model_Friend
 		return $this->_user_id;
 	}
 	
-	public function setFriendUserId($friend_user_id)
+	public function setFirstName($first_name)
 	{
-		$this->_friend_user_id = $friend_user_id;
+		$this->_first_name = $first_name;
 	}
 	
-	public function getFriendUserId()
+	public function getFirstName()
 	{
-		return $this->_friend_user_id;
-	}
-	
-	public function setConfirmed($confirmed)
-	{
-		$this->_confirmed = $confirmed;
-	}
-	
-	public function getConfirmed()
-	{
-		return $this->_confirmed;
+		return $this->_first_name;
 	}
 
+	public function setLastName($last_name)
+	{
+		$this->_last_name = $last_name;
+	}
+	
+	public function getLastName()
+	{
+		return $this->_last_name;
+	}
+	
+	public function setBirthdate($birthdate)
+	{
+		$this->_birthdate = $birthdate;
+	}
+	
+	public function getBirthdate()
+	{
+		return $this->_birthdate;
+	}
+	
+	public function setGender($gender)
+	{
+		$this->_gender = $gender;
+	}
+	
+	public function getGender()
+	{
+		return $this->_gender;
+	}
 }
 

@@ -46,7 +46,7 @@ class Application_Form_Goal extends Zend_Form
 		$this->addElement('text', 'goal_date', array(
 					'size'		 => 10,
 		        	'maxlength'  => 10,
-		            'label'      => 'Date:',
+		            'label'      => 'Date: (yyyy-mm-dd)',
 		            'required'   => true,
 		            'filters'    => array('StringTrim'),
 		        	'validators' => array(
