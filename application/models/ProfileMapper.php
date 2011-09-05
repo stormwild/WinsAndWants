@@ -26,14 +26,15 @@ class Application_Model_ProfileMapper
 	
 	public function find($user_id, Application_Model_Profile $profile)
 	{
-		$row = $this->getDbTable()->find($user_id);
-		if(0 === count($row)) {
+		$resultSet = $this->getDbTable()->find($user_id);
+		if(0 === count($resultSet)) {
 			return;
 		}
-		$profile->setOptions($row->toArray());		
+		$profile->setOptions($resultSet->current()->toArray());	
+		return $resultSet->current();
 	}
 	
-	public function save(Application_Model_Profile $profile)
+	public function save(Application_Model_Profile $profile, $new)
 	{
 		$data = array(
 				'user_id'		=> $profile->getUserId(),
@@ -43,11 +44,11 @@ class Application_Model_ProfileMapper
 				'gender'	=> $profile->getGender()	
 		);
 	
-		if (null === ($user_id = $profile->getUserId())) {
-			unset($data['user_id']);
+		if ($new) {
 			return $this->getDbTable()->insert($data);
 		} else {
-			$this->getDbTable()->update($data, array('user_id = ?' => $user_id));
+			unset($data['user_id']);
+			$this->getDbTable()->update($data, array('user_id = ?' => $profile->getUserId()));
 		}
 	}
 

@@ -111,3 +111,8 @@ dd {
 	border: 1px solid #B8D3D9;
 	padding: 1em;
 }
+.msg {
+	border: 1px solid #6C9;
+	padding: 5px;
+	background: #CFF;
+}

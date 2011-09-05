@@ -97,9 +97,10 @@ class AuthController extends Zend_Controller_Action
 
 	public function logoutAction()
 	{
-		// action body
 		$auth = Zend_Auth::getInstance();
 		$auth->clearIdentity();
+		
+		Zend_Session::destroy(true);		
 	}
 
 	public function confirmAction()

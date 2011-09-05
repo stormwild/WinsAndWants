@@ -6,9 +6,10 @@ $identity = $auth->getIdentity();
 ?>
 <p>Welcome <?php echo $identity->name; ?> <a
 	href="<?php echo $this->url(array('action' => 'logout', 'controller' => 'auth')); ?>">Logout</a></p>
-<p>User Functions</p>	
+<p>Settings</p>	
 <ul>
-	<li><a href="<?php echo $this->url(array('action' => 'update', 'controller' => 'auth')); ?>">Update Account</a></li>
+	<li><a href="<?php echo $this->url(array('action' => 'update', 'controller' => 'auth')); ?>">Password</a></li>
+	<li><a href="<?php echo $this->url(array('action' => 'index', 'controller' => 'profile')); ?>">Profile</a></li>
 </ul>
 <?php
 else :

@@ -2,21 +2,12 @@
 
 class GoalController extends Zend_Controller_Action
 {
-	/**
-	* Redirector - defined for code completion
-	*
-	* @var Zend_Controller_Action_Helper_Redirector
-	*
-	*/
-	protected $_redirector = null;
 
     public function init()
     {
         if(!Zend_Auth::getInstance()->hasIdentity()){
 			$this->_redirect('auth/login');
 		}
-
-		$this->_redirector = $this->_helper->getHelper('Redirector');
     }
 
     public function indexAction()
