@@ -1,4 +1,27 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Member</b> and script/action name <b>find</b></p>
-</div>
+
+<h2>Members</h2>
+
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
+?>
+
+<table>
+<tbody>
+<?php if(!empty($this->rows)) : $row = $this->rows[0]; ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') : echo 'View'; else : echo ucwords(str_replace("_", " ", $key)); endif; ?></td><?php endforeach; ?>
+<td>Add Friend</td>
+</tr>
+<?php foreach ($this->rows as $row) : ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') :?><a href="<?php echo $this->baseUrl() . '/member/view/id/' . $value; ?>">View</a> <?php else : echo $value; endif; ?></td><?php endforeach; ?>
+<td><a href="<?php echo $this->baseUrl() . '/friend/add/id/' . $row['id']; ?>">Add Friend</a></td>
+</tr>
+<?php endforeach; else : echo '<p>No member with that name found. Try another.</p>'; endif; ?>
+</tbody>
+</table>
+

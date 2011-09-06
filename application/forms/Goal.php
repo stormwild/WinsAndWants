@@ -14,15 +14,16 @@ class Application_Form_Goal extends Zend_Form
 		
 		// add goal element
 		$this->addElement('textarea', 'goal', array(
-					'cols' 		 => 50,
-					'rows'		 => 3,
-					'maxlength'  => 140,
-		            'label'      => 'Goal:',
-		            'required'   => true,
-		            'filters'    => array('StringTrim', 'HTMLPurifier'),
-		        	'validators' => array(
-		array('validator' => 'NotEmpty', 'breakChainOnFailure' => true),
-		array('StringLength', false, 3, 140))
+			'cols' 		 => 50,
+			'rows'		 => 3,
+			'maxlength'  => 140,
+            'label'      => 'Goal:',
+            'required'   => true,
+            'filters'    => array('StringTrim', 'HTMLPurifier'),
+        	'validators' => array(
+				array('validator' => 'NotEmpty', 'breakChainOnFailure' => true),
+				array('StringLength', false, 3, 140)
+			)
 		));
 		
 		$this->getElement('goal')->getValidator('NotEmpty')->setMessage('Goal is required.');
