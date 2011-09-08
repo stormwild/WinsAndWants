@@ -1,22 +1,35 @@
 
 <h2>Friends</h2>
-
 <table>
 <tbody>
 <?php if(!empty($this->rows)) : $row = $this->rows[0]; ?>
 <tr>
-<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') : echo 'View'; else : echo ucwords(str_replace("_", " ", $key)); endif; ?></td><?php endforeach; ?>
+<?php foreach ($row as $key => $value) : ?>
+<?php if($key == 'id') : ?>
+<td>Remove</td>
+<?php elseif($key != 'user_id' && $key != 'friend_user_id' && $key != 'confirmed' && $key != 'profile_id') : ?>
+<td><?php echo ucwords(str_replace("_", " ", $key)); ?></td>
+<?php endif; ?>
+<?php endforeach; ?>
 </tr>
 <?php foreach ($this->rows as $row) : ?>
 <tr>
-<?php foreach ($row as $key => $value) : ?><td><?php if($key == 'id') :?><a href="<?php echo $this->baseUrl() . '/friend/find/id/' . $value; ?>">View</a> <?php else : echo $value; endif; ?></td><?php endforeach; ?>
-</tr>
-<?php endforeach; else : ?>
-<p>No friends yet. <a href="<?php echo $this->url(array('action' => 'find', 'controller' => 'member')); ?>/">Add one now</a></p>
+<td><a href="<?php echo $this->baseUrl() . '/friend/confirm/id/' . $row['id'] . '/user_id/' . $row['user_id'] . '/friend_user_id/' . $row['friend_user_id']; ?>">Remove</a></td>
+<?php foreach ($row as $key => $value) : ?>
+<?php if($key != 'id' && $key != 'user_id' && $key != 'friend_user_id' && $key != 'confirmed' && $key != 'profile_id') : ?>
+<td><?php echo $value; ?></td>
 <?php endif; ?>
+<?php endforeach; ?>
+</tr>
+<?php endforeach; else : echo '<p>No friends requests. Add one now</p>'; endif; ?>
 </tbody>
 </table>
 
 <br />
 
+<p><a href="<?php echo $this->url(array('action' => 'find', 'controller' => 'member')); ?>/">Members</a></p>
+
+<br />
+
 <p>Return to <a href="<?php echo $this->baseUrl() . "/dashboard/"; ?>">Dashboard</a></p>
+

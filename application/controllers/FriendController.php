@@ -16,8 +16,11 @@ class FriendController extends Zend_Controller_Action
 		$auth = Zend_Auth::getInstance();
 		$identity = $auth->getIdentity();
 			
-		$friendMapper = new Application_Model_FriendMapper();
-		$rows = $friendMapper->fetchAllByUserId($identity->id);
+		/* $friendMapper = new Application_Model_FriendMapper();
+		$rows = $friendMapper->fetchAllByUserId($identity->id); */
+			
+		$friendProfileMapper = new Application_Model_FriendProfileMapper();
+		$rows = $friendProfileMapper->fetchAllByUserId($identity->id);
 			
 		$this->view->rows = $rows->toArray();
 	}
@@ -88,13 +91,23 @@ class FriendController extends Zend_Controller_Action
 	{
 		$request = $this->getRequest();
 		$id = $request->getParam('id');
+		$user_id = $request->getParam('user_id');
+		$friend_user_id = $request->getParam('friend_user_id'); 
 		
 		$friendMapper = new Application_Model_FriendMapper();
 		$friend = new Application_Model_Friend();
 		
 		$friend->setId($id);
+		$friend->setUserId($user_id);
+		$friend->setFriendUserId($friend_user_id);
 		$friend->setConfirmed(1);
-		$friendMapper->save($friend);
+		
+		try {
+			$friendMapper->save($friend);
+			$this->view->msg = 'Friend successfully confirmed';
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(), $e->getFile(), $e->getPrevious());
+		}
 		
 	}
 
