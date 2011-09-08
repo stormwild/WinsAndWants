@@ -1,8 +1,6 @@
-
 <h2>Members</h2>
 
 <?php
-
 echo $this->errors ? $this->formErrors($this->errors) : '';
 
 $this->form->setAction($this->url());
@@ -25,3 +23,6 @@ echo $this->form;
 </tbody>
 </table>
 
+<p><a href="<?php echo $this->url(array('action' => 'index', 'controller' => 'friend')) ?>/">View Friends</a></p>
+
+<p>Return to <a href="<?php echo $this->baseUrl() . "/dashboard/"; ?>">Dashboard</a></p>

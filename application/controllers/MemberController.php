@@ -20,6 +20,7 @@ class MemberController extends Zend_Controller_Action
         // display a search field to enter a user's name
         // display an alphabetical list of users
         // @TODO implement pagination set limit per page set overal limit for results
+        // @TODO implement list of alphabet to display all members whose name starts with that letter - see Packtpub.PHP.5.Social.Networking.Oct.2010
     	$request = $this->getRequest();
     	$form = new Application_Form_Member();
     	
@@ -27,7 +28,10 @@ class MemberController extends Zend_Controller_Action
     		if($form->isValid($request->getPost())) {
     			$memberMapper = new Application_Model_MemberMapper();
 		    	try {
-		    		$rows = $memberMapper->fetchAllByName($form->getValue('name'));
+		    		$auth = Zend_Auth::getInstance();
+		    		$identity = $auth->getIdentity();
+		    		
+		    		$rows = $memberMapper->fetchAllByName($form->getValue('name'), $identity->id);
 		    	} catch (Exception $e) {
 		    		throw new Exception($e->getMessage());
 		    	}

@@ -58,6 +58,8 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="find"/>
           <actionMethod actionName="add"/>
+          <actionMethod actionName="request"/>
+          <actionMethod actionName="confirm"/>
         </controllerFile>
         <controllerFile controllerName="Member">
           <actionMethod actionName="index"/>
@@ -90,6 +92,7 @@
           <dbTableFile dbTableName="Friend"/>
           <dbTableFile dbTableName="Profile"/>
           <dbTableFile dbTableName="Member"/>
+          <dbTableFile dbTableName="FriendProfile"/>
         </dbTableDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="UserMapper"/>
@@ -109,6 +112,8 @@
         <modelFile modelName="ProfileMapper"/>
         <modelFile modelName="Member"/>
         <modelFile modelName="MemberMapper"/>
+        <modelFile modelName="FriendProfile"/>
+        <modelFile modelName="FriendProfileMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -232,6 +237,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Member">
             <viewScriptFile forActionName="view"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="requests"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="confirm"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

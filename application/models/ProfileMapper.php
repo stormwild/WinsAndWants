@@ -31,24 +31,33 @@ class Application_Model_ProfileMapper
 			return;
 		}
 		$profile->setOptions($resultSet->current()->toArray());	
-		return $resultSet->current();
 	}
 	
-	public function save(Application_Model_Profile $profile, $new)
+	public function save(Application_Model_Profile $profile, $exists)
 	{
 		$data = array(
 				'user_id'		=> $profile->getUserId(),
 				'first_name' 	=> $profile->getFirstName(),
-				'last_name' => $profile->getLastName(),
+				'last_name' 	=> $profile->getLastName(),
 				'birthdate'		=> $profile->getBirthdate(),
-				'gender'	=> $profile->getGender()	
+				'gender'		=> $profile->getGender()	
 		);
 	
-		if ($new) {
-			return $this->getDbTable()->insert($data);
-		} else {
+		if ($exists) {
 			unset($data['user_id']);
-			$this->getDbTable()->update($data, array('user_id = ?' => $profile->getUserId()));
+			$this->getDbTable()->update($data, array('user_id = ?' => $profile->getUserId()));				
+		} else {
+			return $this->getDbTable()->insert($data);
+		}
+	}
+	
+	public function exists($user_id)
+	{
+		$resultSet = $this->getDbTable()->find($user_id);
+		if(0 === count($resultSet)) {
+			return false;
+		} else {
+			return true;
 		}
 	}
 

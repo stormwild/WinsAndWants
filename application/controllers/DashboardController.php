@@ -22,9 +22,9 @@ class DashboardController extends Zend_Controller_Action
 		$profileMapper = new Application_Model_ProfileMapper();
 		$profile = new Application_Model_Profile();
 		
-		$result = $profileMapper->find($identity->id, $profile);
+		$exists = $profileMapper->exists($identity->id);
 
-		if($result == NULL) {
+		if(!$exists) {
 			$this->_redirect('profile');
 			// @TODO save $result to session to allow profile to populate form
 		} else {

@@ -16,42 +16,33 @@ class ProfileController extends Zend_Controller_Action
 		$request = $this->getRequest();
 		$form = new Application_Form_Profile();
 
-		$new = false;
-		
 		$auth = Zend_Auth::getInstance();
 		$identity = $auth->getIdentity();
 		
-		try {
-			$profileMapper = new Application_Model_ProfileMapper();
-			$profile = new Application_Model_Profile();
+		$profileMapper = new Application_Model_ProfileMapper();
+		$profile = new Application_Model_Profile();
 
-			$result = $profileMapper->find($identity->id, $profile);
-
-			if($result == NULL){
-				$new = true;
-			}
-		} catch(Exception $e){
-			throw new Exception($e->getMessage());
-		}
-		
+		$exists = $profileMapper->exists($identity->id); 
 	
 		if($request->isPost()) {
 			if($form->isValid($request->getPost())) {
 				$profile->setOptions($form->getValues());
 				$profile->setUserId($identity->id);
 				
-				$profileMapper->save($profile, $new);
+				$profileMapper->save($profile, $exists);
 				
 				// display success message
 				$this->view->msg = "<p class='msg'>Profile saved</p>";
 			}
 		} else {
 			 
+			$profileMapper->find($identity->id, $profile);
+			
 			$data = array(
-    		'first_name'	=> $profile->getFirstName(),
-    		'last_name'		=> $profile->getLastName(),
-    		'birthdate'		=> date_format(new DateTime($profile->getBirthdate()), 'Y-m-d'), 
-    		'gender'		=> $profile->getGender()
+	    		'first_name'	=> $profile->getFirstName(),
+	    		'last_name'		=> $profile->getLastName(),
+	    		'birthdate'		=> date_format(new DateTime($profile->getBirthdate()), 'Y-m-d'), 
+	    		'gender'		=> $profile->getGender()
 			);
 			 
 			$form->populate($data);

@@ -1,8 +1,7 @@
 <?php
 
-class Application_Model_MemberMapper
+class Application_Model_FriendProfileMapper
 {
-
 	protected $_dbTable;
 	
 	public function setDbTable($dbTable)
@@ -20,30 +19,21 @@ class Application_Model_MemberMapper
 	public function getDbTable()
 	{
 		if(null === $this->_dbTable){
-			$this->setDbTable('Application_Model_DbTable_Member');
+			$this->setDbTable('Application_Model_DbTable_FriendProfile');
 		}
 		return $this->_dbTable;
 	}
 	
-	public function find($id, Application_Model_Member $member)
-	{
-		$result = $this->getDbTable()->find($id);
-		if(0 === count($result)) {
-			return;
-		}
-		$member->setOptions($result->current()->toArray());
-	}
-	
-	public function fetchAllByName($name, $id)
+	public function fetchRequests($user_id)
 	{
 		$table = $this->getDbTable();
-		
-		$select = $table->select()->where('name LIKE ?', '%' . $name . '%')->where('id <> ?', $id);
-		
+	
+		$select = $table->select()->where('user_id = ?', $user_id)->orWhere('friend_user_id = ?', $user_id)->where('profile_id <> ?', $user_id)->where('confirmed = ?', 0);
+		// select profile first name last name
 		$resultSet = $table->fetchAll($select);
-		
+	
 		return $resultSet;
 	}
-	
+
 }
 
