@@ -14,7 +14,7 @@
 </tr>
 <?php foreach ($this->rows as $row) : ?>
 <tr>
-<td><a href="<?php echo $this->baseUrl() . '/friend/remove/id/' . $row['id'] . '/user_id/' . $row['user_id'] . '/friend_user_id/' . $row['friend_user_id']; ?>">Remove</a></td>
+<td><a href="<?php echo $this->baseUrl() . '/friend/delete/id/' . $row['id']; ?>">Remove</a></td>
 <?php foreach ($row as $key => $value) : ?>
 <?php if($key != 'id' && $key != 'user_id' && $key != 'friend_user_id' && $key != 'confirmed' && $key != 'profile_id') : ?>
 <td><?php echo $value; ?></td>
