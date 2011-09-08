@@ -60,6 +60,7 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="request"/>
           <actionMethod actionName="confirm"/>
+          <actionMethod actionName="delete"/>
         </controllerFile>
         <controllerFile controllerName="Member">
           <actionMethod actionName="index"/>
@@ -243,6 +244,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Friend">
             <viewScriptFile forActionName="confirm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Friend">
+            <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

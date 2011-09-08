@@ -3,15 +3,15 @@
 class FriendController extends Zend_Controller_Action
 {
 
-	public function init()
-	{
+    public function init()
+    {
 		if(!Zend_Auth::getInstance()->hasIdentity()){
 			$this->_redirect('auth/login');
 		}
-	}
+    }
 
-	public function indexAction()
-	{
+    public function indexAction()
+    {
 		// list friends of the current user
 		$auth = Zend_Auth::getInstance();
 		$identity = $auth->getIdentity();
@@ -23,15 +23,15 @@ class FriendController extends Zend_Controller_Action
 		$rows = $friendProfileMapper->fetchAllByUserId($identity->id);
 			
 		$this->view->rows = $rows->toArray();
-	}
+    }
 
-	public function findAction()
-	{
+    public function findAction()
+    {
 		// find friends of the current user
-	}
+    }
 
-	public function addAction()
-	{
+    public function addAction()
+    {
 		// add a member as a friend
 		// given the logged in user and the id of the user to be added
 		// add this to the friend database
@@ -69,10 +69,10 @@ class FriendController extends Zend_Controller_Action
 			}
 
 		}
-	}
+    }
 
-	public function requestAction()
-	{
+    public function requestAction()
+    {
 		// action body
 		// display a list of pending friend requests
 		// user may either confirm or ignore
@@ -85,10 +85,10 @@ class FriendController extends Zend_Controller_Action
 		$rows = $friendProfileMapper->fetchRequests($identity->id);
 			
 		$this->view->rows = $rows->toArray();
-	}
+    }
 
-	public function confirmAction()
-	{
+    public function confirmAction()
+    {
 		$request = $this->getRequest();
 		$id = $request->getParam('id');
 		$user_id = $request->getParam('user_id');
@@ -109,10 +109,31 @@ class FriendController extends Zend_Controller_Action
 			throw new Exception($e->getMessage(), $e->getFile(), $e->getPrevious());
 		}
 		
-	}
+    }
+
+    public function deleteAction()
+    {
+    	$request = $this->getRequest();
+    	$id = $request->getParam('id');
+    	 
+    	if($id !== NULL) {
+    		
+    		// @TODO Add confirmation before deleting permanently    		
+    		$friendMapper = new Application_Model_FriendMapper();
+    		$rowsDeleted = $friendMapper->delete($id);
+    		
+    		if($rowsDeleted == 1) {
+    			$this->view->msg = 'Friend removed successfully.';
+    		} elseif($rowsDeleted <= 0) {
+    			$this->view->msg = 'Friend was not removed.';
+    		}
+    	}
+    }
 
 
 }
+
+
 
 
 

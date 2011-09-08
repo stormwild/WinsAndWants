@@ -91,10 +91,23 @@ class Application_Model_FriendMapper
 		$table = $this->getDbTable();
 		
 		$select = $table->select()->where('user_id = ?', $friend_user_id)->orWhere('friend_user_id = ?', $friend_user_id)->where('confirmed = ?', 0);
-		// select profile first name last name
+
 		$resultSet = $table->fetchAll($select);
 		
 		return $resultSet;
+	}
+	
+	public function delete($id)
+	{
+		$table = $this->getDbTable();
+		
+		$db = $table->getAdapter();
+		
+		$where = $db->quoteInto('id = ?', $id);
+		
+		$rowsDeleted = $table->delete($where);
+		
+		return $rowsDeleted;
 	}
 
 }
