@@ -2,7 +2,6 @@
 
 class GoalController extends Zend_Controller_Action
 {
-	protected $_redirect;
 
     public function init()
     {
@@ -85,7 +84,7 @@ class GoalController extends Zend_Controller_Action
     			
     			$goalNamespace->data = $data;
     			
-    			$this->_redirector->gotoUrl('/goal/view/');
+    			$this->_redirect('/goal/view/');
     			//$this->_redirector->gotoUrl('/goal/view/id/' . $goal->getId());
     		}
     	}
@@ -144,13 +143,13 @@ class GoalController extends Zend_Controller_Action
     				 
     				$goalNamespace->data = $data;
     				 
-    				$this->_redirector->gotoUrl('/goal/view/');
+    				$this->_redirect('/goal/view/');
     			}
     		}
     		
     		$this->view->form = $form;
     	} else {
-    		$this->_redirector->gotoUrl('/dashboard');
+    		$this->_redirect('/dashboard');
     	}    	
     }
     
