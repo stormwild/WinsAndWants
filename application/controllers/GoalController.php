@@ -2,6 +2,7 @@
 
 class GoalController extends Zend_Controller_Action
 {
+	protected $_redirect;
 
     public function init()
     {
