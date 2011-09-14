@@ -73,6 +73,7 @@
         </controllerFile>
         <controllerFile controllerName="Share">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="goal"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -253,6 +254,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Share">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Share">
+            <viewScriptFile forActionName="goal"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

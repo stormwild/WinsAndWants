@@ -124,7 +124,6 @@ class GoalController extends Zend_Controller_Action
     				
     				$goal->setId($id);
     				$goal->setUserId($identity->id);
-    				$goal->setCreated(time());
     				 
     				$goalMapper->save($goal);
     				
