@@ -28,7 +28,7 @@ class Application_Model_FriendProfileMapper
 	{
 		$table = $this->getDbTable();
 	
-		$select = $table->select()->where('user_id = ?', $user_id)->orWhere('friend_user_id = ?', $user_id)->where('confirmed = ?', 0)->where('profile_id <> ?', $user_id);
+		$select = $table->select()->where('confirmed = ?', 0)->where('user_id = ?', $user_id)->orWhere('friend_user_id = ?', $user_id)->where('profile_id <> ?', $user_id);
 		// select profile first name last name
 		$resultSet = $table->fetchAll($select);
 	

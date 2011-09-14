@@ -58,7 +58,7 @@ class Application_Model_GoalMapper
 	
 		$table = $this->getDbTable();
 	
-		$select = $table->select()->where('user_id = ?', $user_id);
+		$select = $table->select()->where('user_id = ?', $user_id)->order('id DESC');
 	
 		$resultSet = $table->fetchAll($select);
 	
