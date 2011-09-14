@@ -1,13 +1,11 @@
 <?php
 
 class Application_Model_Share
-{
+{ 
 	protected $_id;
-	protected $_wins_and_wants_id;
-	protected $_wins_and_wants_user_id;
-	protected $_shared_wins;
-	protected $_shared_wants;
-	protected $_shared_user_id;
+	protected $_goal_id;
+	protected $_user_id;
+	protected $_friend_user_id;
 
 	public function __construct(array $options = null)
 	{
@@ -19,7 +17,18 @@ class Application_Model_Share
 	public function setOptions(array $options)
 	{
 		$methods = get_class_methods($this);
-		foreach ($options as $key => $value) {
+		foreach ($options as $key => $value) {			
+			$pos = strpos($key, "_"); // get the index of the first underscore
+			$pos2 = strpost($key, "_", $pos + 1); // get the index of the 2nd underscore
+			
+			if($pos !== false && $pos2 !== false) {
+				$key = substr_replace($key, array(strtoupper($key[$pos + 1]), strtoupper($key[$pos2 + 1])), array($pos + 1, $pos2 + 1), 1); // uppercase the character following the underscore
+			} else {
+				$key = substr_replace($key, strtoupper($key[$pos + 1]), $pos + 1, 1); // uppercase the character following the underscore
+			}
+
+			$key = str_replace("_", "", $key); // remove the underscore
+					
 			$method = 'set' . ucfirst($key);
 			if (in_array($method, $methods)) {
 				$this->$method($value);
@@ -56,54 +65,35 @@ class Application_Model_Share
 		return $this->_id;
 	}
 
-	public function setWinsAndWantsId($wins_and_wants_id)
+	public function setGoalId($goal_id)
 	{
-		$this->_wins_and_wants_id = $wins_and_wants_id;
+		$this->_goal_id = $goal_id;
 	}
 
-	public function getWinsAndWantsId()
+	public function getGoalId()
 	{
-		return $this->_wins_and_wants_id;
+		return $this->_goal_id;
 	}
 
-	public function setWinsAndWantsUserId($wins_and_wants_user_id)
+	public function setUserId($user_id)
 	{
-		$this->_wins_and_wants_user_id = $wins_and_wants_user_id;
+		$this->_user_id = $user_id;
 	}
 
-	public function getWinsAndWantsUserId()
+	public function getUserId()
 	{
-		return $this->_wins_and_wants_user_id;
+		return $this->_user_id;
 	}
 
-	public function setSharedWins($shared_wins)
+	public function setFriendUserId($friend_user_id)
 	{
-		$this->_shared_wins = $shared_wins;
+		$this->_friend_user_id = $friend_user_id;
 	}
 
-	public function getSharedWins()
+	public function getFriendUserId()
 	{
-		return $this->_shared_wins;
+		return $this->_friend_user_id;
 	}
-
-	public function setSharedWants($shared_wants)
-	{
-		$this->_shared_wants = $shared_wants;
-	}
-
-	public function getSharedWants()
-	{
-		return $this->_shared_wants;
-	}
-
-	public function setSharedUserId($shared_user_id)
-	{
-		$this->_shared_user_id = $shared_user_id;
-	}
-
-	public function getSharedUserId()
-	{
-		return $this->_shared_user_id;
-	}
+	
 }
 

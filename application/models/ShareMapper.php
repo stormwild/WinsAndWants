@@ -27,12 +27,10 @@ class Application_Model_ShareMapper
 	public function save(Application_Model_Share $share)
 	{
 		$data = array(
-			'id' 		=> $share->getId(),
-			'wins_and_wants_id'	=> $share->getWinsAndWantsId(),
-			'wins_and_wants_user_id'	=> $share->getWinsAndWantsUserId(),
-			'shared_wins'	=> $share->getSharedWins(),
-			'shared_wants'	=> $share->getSharedWants(),
-			'shared_user_id'	=> $share->getSharedUserId()
+			'id' 				=> $share->getId(),
+			'goal_id'			=> $share->getGoalId(),
+			'user_id'			=> $share->getUserId(),
+			'friend_user_id'	=> $share->getFriendUserId()	
 		);
 				
 		if (null === ($id = $share->getId())) {

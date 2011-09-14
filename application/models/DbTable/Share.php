@@ -2,22 +2,18 @@
 
 class Application_Model_DbTable_Share extends Zend_Db_Table_Abstract
 {
-
     protected $_name = 'share';
-    protected $_dependentTables = array('Comment');
     protected $_referenceMap = array (
-		'WinsAndWants' => array(
-			'columns' 		=> array('wins_and_wants_id'),
-			'refTableClass'	=> 'WinsAndWants',
-			'refColumns'	=> array('id')
+		'Goal' => array(
+			'columns' 		=> array('goal_id', 'user_id'),
+			'refTableClass'	=> 'Goal',
+			'refColumns'	=> array('id', 'user_id')
 		),
-		'WinsAndWants' => array(
-			'columns' 		=> array('wins_and_wants_user_id'),
-			'refTableClass'	=> 'WinsAndWants',
-			'refColumns'	=> array('user_id')
+		'User' => array(
+			'columns' 		=> array('user_id', 'friend_user_id'),
+			'refTableClass'	=> 'User',
+			'refColumns'	=> array('id')
 		)
-	);
-
-
+	);    
 }
 

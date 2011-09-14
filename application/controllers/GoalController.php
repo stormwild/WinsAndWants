@@ -65,7 +65,6 @@ class GoalController extends Zend_Controller_Action
     			$identity = $auth->getIdentity();
     			
     			$goal->setUserId($identity->id);
-    			$goal->setCreated(time());
     			
     			$id = $goalMapper->save($goal);
     			
@@ -79,13 +78,12 @@ class GoalController extends Zend_Controller_Action
 					'notes' 	=> $goal->getNotes(),
 					'goal_date' => date_format(new DateTime($goal->getGoalDate()), 'Y-m-d'),
 					'done'		=> $goal->getDone(),
-					'user_id'	=> $goal->getUserId()	
+					'user_id'	=> $goal->getUserId()
 				);
     			
     			$goalNamespace->data = $data;
     			
     			$this->_redirect('/goal/view/');
-    			//$this->_redirector->gotoUrl('/goal/view/id/' . $goal->getId());
     		}
     	}
     	
