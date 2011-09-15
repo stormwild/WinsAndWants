@@ -1,4 +1,38 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Share</b> and script/action name <b>index</b></p>
-</div>
+<h2>Goal</h2>
+
+<table>
+<tbody>
+<?php foreach ($this->goal as $key => $value) : ?>
+<?php if($key != 'id' && $key != 'user_id') : ?>
+<tr><td><?php echo ucwords(str_replace("_", " ", $key)); ?></td><td><?php if($key == 'goal_date') : echo date_format(new DateTime($value), 'Y-m-d'); else : echo $value; endif; ?></td></tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</tbody>
+</table>
+
+<h2>Friends</h2>
+
+<table>
+<tbody>
+<?php if(!empty($this->rows)) : $row = $this->rows[0]; ?>
+<tr>
+<?php foreach ($row as $key => $value) : ?>
+<?php if($key == 'id') : ?>
+<td>Remove</td>
+<?php elseif($key != 'user_id' && $key != 'friend_user_id' && $key != 'confirmed' && $key != 'profile_id') : ?>
+<td><?php echo ucwords(str_replace("_", " ", $key)); ?></td>
+<?php endif; ?>
+<?php endforeach; ?>
+</tr>
+<?php foreach ($this->rows as $row) : ?>
+<tr>
+<td><a href="<?php echo $this->baseUrl() . '/friend/delete/id/' . $row['id']; ?>">Remove</a></td>
+<?php foreach ($row as $key => $value) : ?>
+<?php if($key != 'id' && $key != 'user_id' && $key != 'friend_user_id' && $key != 'confirmed' && $key != 'profile_id') : ?>
+<td><?php echo $value; ?></td>
+<?php endif; ?>
+<?php endforeach; ?>
+</tr>
+<?php endforeach; else : echo '<p>No friends requests. Add one now</p>'; endif; ?>
+</tbody>
+</table>

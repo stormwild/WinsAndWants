@@ -84,6 +84,7 @@
         <formFile formName="Friend"/>
         <formFile formName="Profile"/>
         <formFile formName="Member"/>
+        <formFile formName="Share"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>

@@ -1,3 +1,19 @@
-<?php 
-var_dump($this->goal);
+<h2>Goal</h2>
+
+<table>
+<tbody>
+<?php foreach ($this->goal as $key => $value) : ?>
+<?php if($key != 'id' && $key != 'user_id') : ?>
+<tr><td><?php echo ucwords(str_replace("_", " ", $key)); ?></td><td><?php if($key == 'goal_date') : echo date_format(new DateTime($value), 'Y-m-d'); else : echo $value; endif; ?></td></tr>
+<?php endif; ?>
+<?php endforeach; ?>
+</tbody>
+</table>
+
+<?php
+
+echo $this->errors ? $this->formErrors($this->errors) : '';
+
+$this->form->setAction($this->url());
+echo $this->form;
 ?>

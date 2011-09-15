@@ -32,7 +32,20 @@ class ShareController extends Zend_Controller_Action
         
         $goalMapper->find($id, $goal);
         
-        $this->view->goal = $goal; 
+        $data = array(
+			'id' 		=> $goal->getId(),
+            'goal'		=> $goal->getGoal(),
+            'notes' 	=> $goal->getNotes(),
+            'goal_date' => $goal->getGoalDate(),
+            'done'		=> $goal->getDone(),
+            'user_id'	=> $goal->getUserId()	
+        );
+        
+        $this->view->goal = $data;
+
+        $form = new Application_Form_Share();
+        
+        $this->view->form = $form;
         
     }
 
