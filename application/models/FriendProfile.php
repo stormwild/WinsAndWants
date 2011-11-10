@@ -23,7 +23,7 @@ class Application_Model_FriendProfile
 		$methods = get_class_methods($this);
 		foreach ($options as $key => $value) {
 			$pos = strpos($key, "_"); // get the index of the first underscore
-			$pos2 = strpost($key, "_", $pos + 1); // get the index of the 2nd underscore
+			$pos2 = strpos($key, "_", $pos + 1); // get the index of the 2nd underscore
 				
 			if($pos !== false && $pos2 !== false) {
 				$key = substr_replace($key, array(strtoupper($key[$pos + 1]), strtoupper($key[$pos2 + 1])), array($pos + 1, $pos2 + 1), 1); // uppercase the character following the underscore

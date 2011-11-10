@@ -19,13 +19,16 @@ class Application_Form_Share extends Zend_Form
 		$friendProfileMapper = new Application_Model_FriendProfileMapper();
 		$rows = $friendProfileMapper->fetchAllByUserId($identity->id);
 
+		//var_dump($identity->id);
 		
 		$options = array();
 		
 		foreach ($rows as $row){
-			$options[$row['id']] = $row['name'];
+			$options[$row['user_id']] = $row['name'];
 		}
-		
+
+		//var_dump($rows, $options);
+				
 		$this->addElement('multicheckbox', 'friends', array(
             'label'      => 'Friends:',
             'required'   => false,

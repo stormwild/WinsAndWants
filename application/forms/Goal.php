@@ -31,14 +31,15 @@ class Application_Form_Goal extends Zend_Form
 		
 		// notes element
 		$this->addElement('textarea', 'notes', array(
-							'cols' 		 => 50,
-							'rows'		 => 6,
-				        	'maxlength'  => 255,
-				            'label'      => 'Notes:',
-				            'required'   => false,
-				            'filters'    => array('StringTrim', 'HTMLPurifier'),
-				        	'validators' => array(
-		array('StringLength', false, 0, 255))
+			'cols' 		 => 50,
+			'rows'		 => 6,
+        	'maxlength'  => 255,
+            'label'      => 'Notes:',
+            'required'   => false,
+            'filters'    => array('StringTrim', 'HTMLPurifier'),
+        	'validators' => array(
+				array('StringLength', false, 0, 255)
+			)
 		));
 		
 		$this->getElement('notes')->getValidator('StringLength')->setMessage('Notes must be between 0-255 characters.');
